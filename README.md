@@ -14,4 +14,6 @@ user: admin@example.com
 pass: password
 
 
-## Bootstrap is added 
+## Bootstrap is added
+
+## navbar approximately completed 
