@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :decors
+  resources :references
   resources :businesses
   resources :technicals
   resources :overviews

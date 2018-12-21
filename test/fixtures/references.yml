@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tag: MyString
+  project: MyString
+  country_city: MyString
+  address: MyString
+  address_link: MyString
+  installer: MyString
+  installer_link: MyString
+  owner: MyString
+  owner_link: MyString
+
+two:
+  tag: MyString
+  project: MyString
+  country_city: MyString
+  address: MyString
+  address_link: MyString
+  installer: MyString
+  installer_link: MyString
+  owner: MyString
+  owner_link: MyString

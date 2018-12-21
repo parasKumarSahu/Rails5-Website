@@ -1,6 +1,14 @@
 ActiveAdmin.register AdminUser do
   permit_params :email, :password, :password_confirmation
 
+
+  form do |f|
+    f.inputs 'Details' do
+      f.input :country, :as => :string
+    end
+    f.actions
+  end
+
   index do
     selectable_column
     id_column

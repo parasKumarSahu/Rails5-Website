@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @decor.name %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @decor.number %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @decor.type %>
+</p>
+
+<p>
+  <strong>Image path:</strong>
+  <%= @decor.image_path %>
+</p>
+
+<p>
+  <strong>Image type:</strong>
+  <%= @decor.image_type %>
+</p>
+
+<p>
+  <strong>Image size:</strong>
+  <%= @decor.image_size %>
+</p>
+
+<%= link_to 'Edit', edit_decor_path(@decor) %> |
+<%= link_to 'Back', decors_path %>
