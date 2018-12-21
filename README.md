@@ -16,4 +16,6 @@ pass: password
 
 ## Bootstrap is added
 
-## navbar approximately completed 
+## navbar approximately completed  
+
+## some changes is navbar and Quoto is done
