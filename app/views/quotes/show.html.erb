@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @quote.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @quote.image %>
+</p>
+
+<p>
+  <strong>Image type:</strong>
+  <%= @quote.image_type %>
+</p>
+
+<p>
+  <strong>Image size:</strong>
+  <%= @quote.image_size %>
+</p>
+
+<%= link_to 'Edit', edit_quote_path(@quote) %> |
+<%= link_to 'Back', quotes_path %>

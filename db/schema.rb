@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_21_141044) do
+ActiveRecord::Schema.define(version: 2018_12_21_163027) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(version: 2018_12_21_141044) do
     t.index ["product_id"], name: "index_businesses_on_product_id"
   end
 
+  create_table "certifications", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "decors", force: :cascade do |t|
     t.string "name"
     t.integer "number"
@@ -77,8 +83,38 @@ ActiveRecord::Schema.define(version: 2018_12_21_141044) do
     t.index ["product_id"], name: "index_designs_on_product_id"
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "caption"
+    t.string "other"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "families", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "learns", force: :cascade do |t|
+    t.string "video_link"
+    t.string "thumbnail"
+    t.string "thumbnail_type"
+    t.integer "thumbnail_size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "offices", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone"
+    t.string "alternate_phone"
+    t.string "office_type"
+    t.string "email"
+    t.decimal "lat"
+    t.decimal "long"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -106,6 +142,25 @@ ActiveRecord::Schema.define(version: 2018_12_21_141044) do
     t.index ["reference_id"], name: "index_products_references_on_reference_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.string "content"
+    t.string "description"
+    t.string "answer"
+    t.integer "certification_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["certification_id"], name: "index_questions_on_certification_id"
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.string "description"
+    t.string "image"
+    t.string "image_type"
+    t.integer "image_size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "references", force: :cascade do |t|
     t.string "tag"
     t.string "project"
@@ -118,6 +173,17 @@ ActiveRecord::Schema.define(version: 2018_12_21_141044) do
     t.string "owner_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "name"
+    t.string "link"
+    t.string "type"
+    t.string "category"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_resources_on_product_id"
   end
 
   create_table "technicals", force: :cascade do |t|

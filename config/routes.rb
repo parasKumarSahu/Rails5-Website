@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :questions
+  resources :learns
+  resources :quotes
+  resources :events
+  resources :certifications
+  resources :offices
+  resources :resources
   resources :decors
   resources :references
   resources :businesses
