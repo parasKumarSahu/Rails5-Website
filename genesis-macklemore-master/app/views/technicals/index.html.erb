@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Technicals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Composition</th>
+      <th>Manufacturing</th>
+      <th>Install</th>
+      <th>Perform</th>
+      <th>Product</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @technicals.each do |technical| %>
+      <tr>
+        <td><%= technical.composition %></td>
+        <td><%= technical.manufacturing %></td>
+        <td><%= technical.install %></td>
+        <td><%= technical.perform %></td>
+        <td><%= technical.product %></td>
+        <td><%= link_to 'Show', technical %></td>
+        <td><%= link_to 'Edit', edit_technical_path(technical) %></td>
+        <td><%= link_to 'Destroy', technical, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Technical', new_technical_path %>

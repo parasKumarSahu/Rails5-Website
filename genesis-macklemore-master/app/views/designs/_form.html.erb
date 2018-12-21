@@ -1,0 +1,52 @@
+<%= form_with(model: design, local: true) do |form| %>
+  <% if design.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(design.errors.count, "error") %> prohibited this design from being saved:</h2>
+
+      <ul>
+      <% design.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :selector %>
+    <%= form.text_field :selector %>
+  </div>
+
+  <div class="field">
+    <%= form.label :guide %>
+    <%= form.text_field :guide %>
+  </div>
+
+  <div class="field">
+    <%= form.label :area %>
+    <%= form.text_field :area %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sectors %>
+    <%= form.text_field :sectors %>
+  </div>
+
+  <div class="field">
+    <%= form.label :finishes %>
+    <%= form.text_field :finishes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :availability %>
+    <%= form.text_field :availability %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.text_field :product_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

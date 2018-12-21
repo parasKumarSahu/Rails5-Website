@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Composition:</strong>
+  <%= @technical.composition %>
+</p>
+
+<p>
+  <strong>Manufacturing:</strong>
+  <%= @technical.manufacturing %>
+</p>
+
+<p>
+  <strong>Install:</strong>
+  <%= @technical.install %>
+</p>
+
+<p>
+  <strong>Perform:</strong>
+  <%= @technical.perform %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @technical.product %>
+</p>
+
+<%= link_to 'Edit', edit_technical_path(@technical) %> |
+<%= link_to 'Back', technicals_path %>
