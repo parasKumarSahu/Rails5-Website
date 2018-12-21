@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_20_105328) do
+ActiveRecord::Schema.define(version: 2018_12_21_100152) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -36,6 +36,60 @@ ActiveRecord::Schema.define(version: 2018_12_20_105328) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "businesses", force: :cascade do |t|
+    t.string "body"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_businesses_on_product_id"
+  end
+
+  create_table "designs", force: :cascade do |t|
+    t.string "selector"
+    t.string "guide"
+    t.string "area"
+    t.string "sectors"
+    t.string "finishes"
+    t.string "availability"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_designs_on_product_id"
+  end
+
+  create_table "families", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "overviews", force: :cascade do |t|
+    t.string "body"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_overviews_on_product_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.integer "family_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_products_on_family_id"
+  end
+
+  create_table "technicals", force: :cascade do |t|
+    t.string "composition"
+    t.string "manufacturing"
+    t.string "install"
+    t.string "perform"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_technicals_on_product_id"
   end
 
 end
