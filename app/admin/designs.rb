@@ -4,6 +4,19 @@ ActiveAdmin.register Design do
 #
 permit_params :selector, :guide, :area, :sectors, :finishes, :availability, :product_id
 
+form do |f|
+  f.inputs do
+	f.input :product_id , label: 'Product', as: :select, collection: Product.pluck( :name, :id)
+	f.input :selector, :as => :ckeditor
+	f.input :guide, :as => :ckeditor
+	f.input :area, :as => :ckeditor
+	f.input :sectors, :as => :ckeditor
+	f.input :finishes, :as => :ckeditor
+	f.input :availability, :as => :ckeditor
+  end
+  f.actions
+end
+
 #
 # or
 #

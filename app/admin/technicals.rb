@@ -4,6 +4,17 @@ ActiveAdmin.register Technical do
 #
 permit_params :composition, :manufacturing, :install, :perform, :product_id
 
+form do |f|
+  f.inputs do
+	f.input :product_id , label: 'Product', as: :select, collection: Product.pluck( :name, :id)
+	f.input :composition, :as => :ckeditor
+	f.input :manufacturing, :as => :ckeditor
+	f.input :install, :as => :ckeditor
+	f.input :perform, :as => :ckeditor
+  end
+  f.actions
+end
+
 #
 # or
 #
