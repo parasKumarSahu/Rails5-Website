@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :performences
+  resources :installations
+  resources :manufacturings
   resources :questions
   resources :learns
   resources :quotes
@@ -9,7 +12,6 @@ Rails.application.routes.draw do
   resources :decors
   resources :references
   resources :businesses
-  resources :technicals
   resources :overviews
   resources :designs
   resources :products

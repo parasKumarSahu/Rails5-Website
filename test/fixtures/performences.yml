@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  features: MyString
+  maintenance: MyString
+  warranty: MyString
+  product: one
+
+two:
+  features: MyString
+  maintenance: MyString
+  warranty: MyString
+  product: two

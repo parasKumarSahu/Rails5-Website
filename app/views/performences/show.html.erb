@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Features:</strong>
+  <%= @performence.features %>
+</p>
+
+<p>
+  <strong>Maintenance:</strong>
+  <%= @performence.maintenance %>
+</p>
+
+<p>
+  <strong>Warranty:</strong>
+  <%= @performence.warranty %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @performence.product %>
+</p>
+
+<%= link_to 'Edit', edit_performence_path(@performence) %> |
+<%= link_to 'Back', performences_path %>

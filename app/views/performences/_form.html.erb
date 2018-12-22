@@ -1,0 +1,37 @@
+<%= form_with(model: performence, local: true) do |form| %>
+  <% if performence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(performence.errors.count, "error") %> prohibited this performence from being saved:</h2>
+
+      <ul>
+      <% performence.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :features %>
+    <%= form.text_field :features %>
+  </div>
+
+  <div class="field">
+    <%= form.label :maintenance %>
+    <%= form.text_field :maintenance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :warranty %>
+    <%= form.text_field :warranty %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.text_field :product_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

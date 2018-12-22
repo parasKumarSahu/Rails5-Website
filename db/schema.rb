@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_21_163027) do
+ActiveRecord::Schema.define(version: 2018_12_22_124949) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -97,6 +97,15 @@ ActiveRecord::Schema.define(version: 2018_12_21_163027) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "installations", force: :cascade do |t|
+    t.string "safety"
+    t.string "fabrication"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_installations_on_product_id"
+  end
+
   create_table "learns", force: :cascade do |t|
     t.string "video_link"
     t.string "thumbnail"
@@ -104,6 +113,15 @@ ActiveRecord::Schema.define(version: 2018_12_21_163027) do
     t.integer "thumbnail_size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "manufacturings", force: :cascade do |t|
+    t.string "inputs"
+    t.string "process"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_manufacturings_on_product_id"
   end
 
   create_table "offices", force: :cascade do |t|
@@ -125,6 +143,16 @@ ActiveRecord::Schema.define(version: 2018_12_21_163027) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_overviews_on_product_id"
+  end
+
+  create_table "performences", force: :cascade do |t|
+    t.string "features"
+    t.string "maintenance"
+    t.string "warranty"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_performences_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -184,17 +212,6 @@ ActiveRecord::Schema.define(version: 2018_12_21_163027) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_resources_on_product_id"
-  end
-
-  create_table "technicals", force: :cascade do |t|
-    t.string "composition"
-    t.string "manufacturing"
-    t.string "install"
-    t.string "perform"
-    t.integer "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_technicals_on_product_id"
   end
 
 end
