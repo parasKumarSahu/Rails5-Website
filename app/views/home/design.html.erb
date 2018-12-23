@@ -1,0 +1,33 @@
+<nav class="navbar" style="font-family: comic sans;">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="nav-item">
+          <%= link_to "Overview", "/home/overview?product=" + params[:product]%>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Design</a>
+            <div class="dropdown-menu">
+              <%= link_to("Guide", "/home/design?product="+params[:product]+"&col=guide",
+               class: 'dropdown-item')%>
+              <%= link_to("Area", "/home/design?product="+params[:product]+"&col=area",
+               class: 'dropdown-item')%>
+              <%= link_to("Sectors", "/home/design?product="+params[:product]+"&col=sectors",
+               class: 'dropdown-item')%>
+              <%= link_to("Finishes", "/home/design?product="+params[:product]+"&col=finishes",
+               class: 'dropdown-item')%>
+              <%= link_to("Availability", "/home/design?product="+params[:product]+"&col=availability",
+               class: 'dropdown-item')%>
+            </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="col-sm-6 col-sm-offset-4">
+  <h1>Design</h1><br>
+  <h2>Product name : <%= params[:product] %></h2><br>
+  HTML content:<br><br>
+  <%= Product.find_by(name: params[:product]).design.send(params[:col].to_sym).html_safe%>
+</div>
