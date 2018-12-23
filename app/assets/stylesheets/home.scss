@@ -2,187 +2,114 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.features-boxed {
-  color:#313437;
-  background-color:#eef4f7;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
 }
 
-.features-boxed p {
-  color:#7d8285;
+section {
+  overflow: auto;
 }
 
-.features-boxed h2 {
-  font-weight:bold;
-  margin-bottom:40px;
-  padding-top:40px;
-  color:inherit;
+textarea {
+  resize: vertical;
 }
 
-@media (max-width:767px) {
-  .features-boxed h2 {
-    margin-bottom:25px;
-    padding-top:25px;
-    font-size:24px;
+.center {
+  text-align: center;
+}
+
+/* header */
+
+
+header .header-content {
+    position: relative;
+    width: 100%;
+    padding: 100px 15px;
+    text-align: center;
+}
+
+header .header-content .header-content-inner h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 4em;
+}
+
+header .header-content .header-content-inner h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 2em;
+}
+
+/* footer */
+
+footer {
+  color: #fff;
+  background-color: #233140;
+  padding: 25px 0;
+  width: 100%;
+}
+
+footer a {
+  color: $gray;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
   }
 }
 
-.features-boxed .intro {
-  font-size:16px;
-  max-width:500px;
-  margin:0 auto;
+footer copyright {
+  float: left;
 }
 
-.features-boxed .intro p {
-  margin-bottom:0;
-}
-.features-boxed .features {
-  padding:50px 0;
-}
-
-.features-boxed .item {
-  text-align:center;
-}
-
-.features-boxed .item .box {
-  text-align:center;
-  padding:30px;
-  background-color: silver;
-  margin-bottom:30px;
-}
-
-.features-boxed .item .icon {
-  font-size:60px;
-  color:#1485ee;
-  margin-top:20px;
-  margin-bottom:35px;
-}
-
-.features-boxed .item .name {
-  font-weight:bold;
-  font-size:18px;
-  margin-bottom:8px;
-  margin-top:0;
-  color:inherit;
-}
-
-.features-boxed .item .description {
-  font-size:15px;
-  margin-top:15px;
-  margin-bottom:20px;
-}
-
-
-
-
-
-.navigation-clean-search {
-  background:#fff;
-  padding-top:.75rem;
-  padding-bottom:.75rem;
-  color:#333;
-  border-radius:0;
-  box-shadow:none;
-  border:none;
-  margin-bottom:0;
-}
-
-@media (min-width:768px) {
-  .navigation-clean-search {
-    padding-top:1rem;
-    padding-bottom:1rem;
+footer ul {
+  float: right;
+  list-style: none;
+  li {
+    float: left;
+    margin-left: 15px;
   }
 }
 
-.navigation-clean-search .navbar-brand {
-  font-weight:bold;
-  color:inherit;
+* { 
+margin: 0;
 }
+html, body { 
+height: 100%; 
+}
+.p
+{ min-height: 100%;
+/* equal to footer height */
+margin-bottom: -142px; 
+} 
+.page-wrap:after
+{ 
+content: ""; display: block;
+}
+.site-footer, .page-wrap:after
+{ 
+height: 142px;
+} 
 
-.navigation-clean-search .navbar-brand:hover {
-  color:#222;
-}
 
-.navigation-clean-search .navbar-toggler {
-  border-color:#ddd;
-}
 
-.navigation-clean-search .navbar-toggler:hover, .navigation-clean-search .navbar-toggler:focus {
-  background:none;
-}
 
-.navigation-clean-search .navbar-toggler {
-  color:#888;
-}
 
-.navigation-clean-search .navbar-collapse, .navigation-clean-search .form-inline {
-  border-top-color:#ddd;
-}
 
-.navigation-clean-search .navbar-nav a.active, .navigation-clean-search .navbar-nav > .show > a {
-  background:none;
-  box-shadow:none;
-}
 
-.navigation-clean-search.navbar-light .navbar-nav a.active, .navigation-clean-search.navbar-light .navbar-nav a.active:focus, .navigation-clean-search.navbar-light .navbar-nav a.active:hover {
-  color:#8f8f8f;
-  box-shadow:none;
-  background:none;
-  pointer-events:none;
-}
 
-.navigation-clean-search.navbar .navbar-nav .nav-link {
-  padding-left:18px;
-  padding-right:18px;
-}
 
-.navigation-clean-search.navbar-light .navbar-nav .nav-link {
-  color:#465765;
-}
 
-.navigation-clean-search.navbar-light .navbar-nav .nav-link:focus, .navigation-clean-search.navbar-light .navbar-nav .nav-link:hover {
-  color:#37434d !important;
-  background-color:transparent;
-}
 
-.navigation-clean-search .action-button, .navigation-clean-button .action-button:active {
-  background:#56c6c6;
-  border-radius:20px;
-  font-size:inherit;
-  color:#fff !important;
-  box-shadow:none;
-  border:none;
-  text-shadow:none;
-  padding:8px 20px;
-  transition:background-color 0.25s;
-}
-
-.navigation-clean-search .action-button:hover, .navigation-clean-search .action-button:focus {
-  background:#66d7d7;
-}
-
-.navigation-clean-search .form-inline label {
-  color:#ccc;
-}
-
-.navigation-clean-search .form-inline .search-field {
-  background:none;
-  border:none;
-  border-bottom:1px solid transparent;
-  border-radius:0;
-  color:#ccc;
-  box-shadow:none;
-  color:inherit;
-  transition:border-bottom-color 0.3s;
-}
-
-@media (max-width:767px) {
-  .navigation-clean-search .form-inline .search-field {
-    display:inline-block;
-    width:80%;
-  }
-}
-
-.navigation-clean-search .form-inline .search-field:focus {
-  border-bottom:1px solid #ccc;
-}
 

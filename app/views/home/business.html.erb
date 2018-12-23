@@ -9,7 +9,7 @@
   margin-top: 10px;
 }
 </style>
-<nav class="navbar" style="font-family: comic sans;">
+<nav class="navbar" style="font-family: comic sans;margin-top: 150px">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav navbar-left">
@@ -83,9 +83,12 @@ $(document).ready(function(){
 });
 </script>
 
-<div class="col-sm-6 col-sm-offset-4">
-  <h1>Overview</h1><br>
-  <h2>Product name : <%= params[:product] %></h2><br>
-  HTML content:<br><br>
-  <%= Product.find_by(name: params[:product]).business.body.html_safe%>
-</div>
+<header>
+    <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
+        <div class="header-content-inner">
+          <h1>Business</h1><br>
+          <h2>Product name : <%= params[:product] %></h2><br><br><br>
+          <%= Product.find_by(name: params[:product]).business.body.html_safe%>
+        </div>
+    </div>
+</header>
