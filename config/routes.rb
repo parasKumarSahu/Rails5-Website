@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'home/product'
   get 'home/overview'
   get 'home/design'
+  get 'home/technical'
+  get 'home/business'
   # For detail  s on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
  

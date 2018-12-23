@@ -7,4 +7,8 @@ class HomeController < ApplicationController
   end	
   def design
   end
+  def technical
+  end	
+  def business
+  end	
 end

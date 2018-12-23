@@ -84,8 +84,8 @@ $(document).ready(function(){
 </script>
 
 <div class="col-sm-6 col-sm-offset-4">
-  <h1>Overview</h1><br>
+  <h1>Design</h1><br>
   <h2>Product name : <%= params[:product] %></h2><br>
   HTML content:<br><br>
-  <%= Product.find_by(name: params[:product]).overview.body.html_safe%>
+  <%= Product.find_by(name: params[:product]).send(params[:table]).send(params[:col].to_sym).html_safe%>
 </div>

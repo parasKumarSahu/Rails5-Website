@@ -87,5 +87,5 @@ $(document).ready(function(){
   <h1>Overview</h1><br>
   <h2>Product name : <%= params[:product] %></h2><br>
   HTML content:<br><br>
-  <%= Product.find_by(name: params[:product]).overview.body.html_safe%>
+  <%= Product.find_by(name: params[:product]).business.body.html_safe%>
 </div>
