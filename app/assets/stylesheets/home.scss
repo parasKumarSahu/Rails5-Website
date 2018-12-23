@@ -91,7 +91,7 @@ height: 100%;
 .p
 { min-height: 100%;
 /* equal to footer height */
-margin-bottom: -142px; 
+margin-bottom: -180px; 
 } 
 .page-wrap:after
 { 
@@ -99,7 +99,7 @@ content: ""; display: block;
 }
 .site-footer, .page-wrap:after
 { 
-height: 142px;
+height: 180px;
 } 
 
 
