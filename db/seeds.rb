@@ -21,40 +21,192 @@ Performence.delete_all
 Product.delete_all
 Family.delete_all
 
+html_str = '<p><big> '
+html_str2 = ' HTML<br /> &nbsp; <p>&nbsp;</p> <p><strong><img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf5Ds6M2i--Q0IKiKxt8P-cyYL4CAqkOkJT7iU9RlHWt29eIb5" style="width: 275px; height: 183px;" /></strong></p> </p"<big>'
+
 if Family.find_by(name: 'HPL').nil?
 	puts "Creating HPL Products"
-	f1 = Family.create!(name: 'HPL')
+	f = Family.create!(name: 'HPL')
 
-	pro = f1.products.create! name: 'LAM'
-	pro.create_design(selector: '<p><strong>This selector HTML is stored in Design Table</strong></p>', guide: '<p><strong>This Gudide HTML is stored in Design Table</strong></p>', area: '<p><strong>This Area HTML is stored in Design Table</strong></p>', sectors: '<p><strong>This Sector HTML is stored in Design Table</strong></p>', finishes: '<p><strong>This finishes HTML is stored in Design Table</strong></p>', availability: '<p><strong>This availability HTML is stored in Design Table</strong></p>')
-	pro.create_overview(body: '<p><big>Overview HTML<br /> &nbsp; <p>&nbsp;</p> <p><strong><img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf5Ds6M2i--Q0IKiKxt8P-cyYL4CAqkOkJT7iU9RlHWt29eIb5" style="width: 275px; height: 183px;" /></strong></p> </p"<big>') 
+	pro = f.products.create! name: 'LAM'
+	pro.create_design(selector: html_str+"selector"+html_str2,
+	 guide: html_str+"guide"+html_str2,
+	  area: html_str+"area"+html_str2,
+	   sectors: html_str+"sectors"+html_str2,
+	    finishes: html_str+"finishes"+html_str2,
+	     availability: html_str+"availability"+html_str2)
+	pro.create_installation(safety: html_str+"safety"+html_str2,
+	 fabrication: html_str+"fabrication"+html_str2)
+	pro.create_manufacturing(inputs: html_str+"inputs"+html_str2,
+	 process: html_str+"process"+html_str2)
+	pro.create_performence(features: html_str+"features"+html_str2,
+	 maintenance: html_str+"maintenance"+html_str2,
+	  warranty: html_str+"warranty"+html_str2)
+	pro.create_overview(body: html_str+"Overview"+html_str2) 
+	pro.create_business(body: html_str+"Business"+html_str2)
 
-	pro = f1.products.create! name: 'MR'
-	pro.create_design(selector: '<p><strong>This selector HTML is stored in Design Table</strong></p>', guide: '<p><strong>This Gudide HTML is stored in Design Table</strong></p>', area: '<p><strong>This Area HTML is stored in Design Table</strong></p>', sectors: '<p><strong>This Sector HTML is stored in Design Table</strong></p>', finishes: '<p><strong>This finishes HTML is stored in Design Table</strong></p>', availability: '<p><strong>This availability HTML is stored in Design Table</strong></p>')
-	pro.create_overview(body: '<p><big>Overview HTML<br /> &nbsp; <p>&nbsp;</p> <p><strong><img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf5Ds6M2i--Q0IKiKxt8P-cyYL4CAqkOkJT7iU9RlHWt29eIb5" style="width: 275px; height: 183px;" /></strong></p> </p"<big>') 
+	pro = f.products.create! name: 'MR'
+	pro.create_design(selector: html_str+"selector"+html_str2,
+	 guide: html_str+"guide"+html_str2,
+	  area: html_str+"area"+html_str2,
+	   sectors: html_str+"sectors"+html_str2,
+	    finishes: html_str+"finishes"+html_str2,
+	     availability: html_str+"availability"+html_str2)
+	pro.create_installation(safety: html_str+"safety"+html_str2,
+	 fabrication: html_str+"fabrication"+html_str2)
+	pro.create_manufacturing(inputs: html_str+"inputs"+html_str2,
+	 process: html_str+"process"+html_str2)
+	pro.create_performence(features: html_str+"features"+html_str2,
+	 maintenance: html_str+"maintenance"+html_str2,
+	  warranty: html_str+"warranty"+html_str2)
+	pro.create_overview(body: html_str+"Overview"+html_str2) 
+	pro.create_business(body: html_str+"Business"+html_str2)
 
-	pro = f1.products.create! name: 'MRmax'
-	pro.create_design(selector: '<p><strong>This selector HTML is stored in Design Table</strong></p>', guide: '<p><strong>This Gudide HTML is stored in Design Table</strong></p>', area: '<p><strong>This Area HTML is stored in Design Table</strong></p>', sectors: '<p><strong>This Sector HTML is stored in Design Table</strong></p>', finishes: '<p><strong>This finishes HTML is stored in Design Table</strong></p>', availability: '<p><strong>This availability HTML is stored in Design Table</strong></p>')
-	pro.create_overview(body: '<p><big>Overview HTML<br /> &nbsp; <p>&nbsp;</p> <p><strong><img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf5Ds6M2i--Q0IKiKxt8P-cyYL4CAqkOkJT7iU9RlHWt29eIb5" style="width: 275px; height: 183px;" /></strong></p> </p"<big>') 
+
+	pro = f.products.create! name: 'MRmax'
+	pro.create_design(selector: html_str+"selector"+html_str2,
+	 guide: html_str+"guide"+html_str2,
+	  area: html_str+"area"+html_str2,
+	   sectors: html_str+"sectors"+html_str2,
+	    finishes: html_str+"finishes"+html_str2,
+	     availability: html_str+"availability"+html_str2)
+	pro.create_installation(safety: html_str+"safety"+html_str2,
+	 fabrication: html_str+"fabrication"+html_str2)
+	pro.create_manufacturing(inputs: html_str+"inputs"+html_str2,
+	 process: html_str+"process"+html_str2)
+	pro.create_performence(features: html_str+"features"+html_str2,
+	 maintenance: html_str+"maintenance"+html_str2,
+	  warranty: html_str+"warranty"+html_str2)
+	pro.create_overview(body: html_str+"Overview"+html_str2) 
+	pro.create_business(body: html_str+"Business"+html_str2)
+
 else
 	puts "HPL already exists"
 end	
 
+
+
+
+
 if Family.find_by(name: 'PPL').nil?
 	puts "Creating PPL Products"
-	f1 = Family.create!(name: 'PPL')
+	f = Family.create!(name: 'PPL')
 
-	pro = f1.products.create! name: 'LAMo'
-	pro.create_design(selector: '<p><strong>This selector HTML is stored in Design Table</strong></p>', guide: '<p><strong>This Gudide HTML is stored in Design Table</strong></p>', area: '<p><strong>This Area HTML is stored in Design Table</strong></p>', sectors: '<p><strong>This Sector HTML is stored in Design Table</strong></p>', finishes: '<p><strong>This finishes HTML is stored in Design Table</strong></p>', availability: '<p><strong>This availability HTML is stored in Design Table</strong></p>')
-	pro.create_overview(body: '<p><big>Overview HTML<br /> &nbsp; <p>&nbsp;</p> <p><strong><img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf5Ds6M2i--Q0IKiKxt8P-cyYL4CAqkOkJT7iU9RlHWt29eIb5" style="width: 275px; height: 183px;" /></strong></p> </p"<big>') 
+	pro = f.products.create! name: 'LAMo'
+	pro.create_design(selector: html_str+"selector"+html_str2,
+	 guide: html_str+"guide"+html_str2,
+	  area: html_str+"area"+html_str2,
+	   sectors: html_str+"sectors"+html_str2,
+	    finishes: html_str+"finishes"+html_str2,
+	     availability: html_str+"availability"+html_str2)
+	pro.create_installation(safety: html_str+"safety"+html_str2,
+	 fabrication: html_str+"fabrication"+html_str2)
+	pro.create_manufacturing(inputs: html_str+"inputs"+html_str2,
+	 process: html_str+"process"+html_str2)
+	pro.create_performence(features: html_str+"features"+html_str2,
+	 maintenance: html_str+"maintenance"+html_str2,
+	  warranty: html_str+"warranty"+html_str2)
+	pro.create_overview(body: html_str+"Overview"+html_str2) 
+	pro.create_business(body: html_str+"Business"+html_str2)
 
-	pro = f1.products.create! name: 'MRo'
-	pro.create_design(selector: '<p><strong>This selector HTML is stored in Design Table</strong></p>', guide: '<p><strong>This Gudide HTML is stored in Design Table</strong></p>', area: '<p><strong>This Area HTML is stored in Design Table</strong></p>', sectors: '<p><strong>This Sector HTML is stored in Design Table</strong></p>', finishes: '<p><strong>This finishes HTML is stored in Design Table</strong></p>', availability: '<p><strong>This availability HTML is stored in Design Table</strong></p>')
-	pro.create_overview(body: '<p><big>Overview HTML<br /> &nbsp; <p>&nbsp;</p> <p><strong><img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf5Ds6M2i--Q0IKiKxt8P-cyYL4CAqkOkJT7iU9RlHWt29eIb5" style="width: 275px; height: 183px;" /></strong></p> </p"<big>') 
+	pro = f.products.create! name: 'MRo'
+	pro.create_design(selector: html_str+"selector"+html_str2,
+	 guide: html_str+"guide"+html_str2,
+	  area: html_str+"area"+html_str2,
+	   sectors: html_str+"sectors"+html_str2,
+	    finishes: html_str+"finishes"+html_str2,
+	     availability: html_str+"availability"+html_str2)
+	pro.create_installation(safety: html_str+"safety"+html_str2,
+	 fabrication: html_str+"fabrication"+html_str2)
+	pro.create_manufacturing(inputs: html_str+"inputs"+html_str2,
+	 process: html_str+"process"+html_str2)
+	pro.create_performence(features: html_str+"features"+html_str2,
+	 maintenance: html_str+"maintenance"+html_str2,
+	  warranty: html_str+"warranty"+html_str2)
+	pro.create_overview(body: html_str+"Overview"+html_str2) 
+	pro.create_business(body: html_str+"Business"+html_str2)
 
-	pro = f1.products.create! name: 'MRmaxo'
-	pro.create_design(selector: '<p><strong>This selector HTML is stored in Design Table</strong></p>', guide: '<p><strong>This Gudide HTML is stored in Design Table</strong></p>', area: '<p><strong>This Area HTML is stored in Design Table</strong></p>', sectors: '<p><strong>This Sector HTML is stored in Design Table</strong></p>', finishes: '<p><strong>This finishes HTML is stored in Design Table</strong></p>', availability: '<p><strong>This availability HTML is stored in Design Table</strong></p>')
-	pro.create_overview(body: '<p><big>Overview HTML<br /> &nbsp; <p>&nbsp;</p> <p><strong><img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf5Ds6M2i--Q0IKiKxt8P-cyYL4CAqkOkJT7iU9RlHWt29eIb5" style="width: 275px; height: 183px;" /></strong></p> </p"<big>') 
+
+	pro = f.products.create! name: 'MRmaxo'
+	pro.create_design(selector: html_str+"selector"+html_str2,
+	 guide: html_str+"guide"+html_str2,
+	  area: html_str+"area"+html_str2,
+	   sectors: html_str+"sectors"+html_str2,
+	    finishes: html_str+"finishes"+html_str2,
+	     availability: html_str+"availability"+html_str2)
+	pro.create_installation(safety: html_str+"safety"+html_str2,
+	 fabrication: html_str+"fabrication"+html_str2)
+	pro.create_manufacturing(inputs: html_str+"inputs"+html_str2,
+	 process: html_str+"process"+html_str2)
+	pro.create_performence(features: html_str+"features"+html_str2,
+	 maintenance: html_str+"maintenance"+html_str2,
+	  warranty: html_str+"warranty"+html_str2)
+	pro.create_overview(body: html_str+"Overview"+html_str2) 
+	pro.create_business(body: html_str+"Business"+html_str2)
+
 else
 	puts "PPL already exists"
+end	
+
+
+
+
+if Family.find_by(name: 'KPL').nil?
+	puts "Creating KPL Products"
+	f = Family.create!(name: 'KPL')
+
+	pro = f.products.create! name: 'LAMi'
+	pro.create_design(selector: html_str+"selector"+html_str2,
+	 guide: html_str+"guide"+html_str2,
+	  area: html_str+"area"+html_str2,
+	   sectors: html_str+"sectors"+html_str2,
+	    finishes: html_str+"finishes"+html_str2,
+	     availability: html_str+"availability"+html_str2)
+	pro.create_installation(safety: html_str+"safety"+html_str2,
+	 fabrication: html_str+"fabrication"+html_str2)
+	pro.create_manufacturing(inputs: html_str+"inputs"+html_str2,
+	 process: html_str+"process"+html_str2)
+	pro.create_performence(features: html_str+"features"+html_str2,
+	 maintenance: html_str+"maintenance"+html_str2,
+	  warranty: html_str+"warranty"+html_str2)
+	pro.create_overview(body: html_str+"Overview"+html_str2) 
+	pro.create_business(body: html_str+"Business"+html_str2)
+
+	pro = f.products.create! name: 'MRi'
+	pro.create_design(selector: html_str+"selector"+html_str2,
+	 guide: html_str+"guide"+html_str2,
+	  area: html_str+"area"+html_str2,
+	   sectors: html_str+"sectors"+html_str2,
+	    finishes: html_str+"finishes"+html_str2,
+	     availability: html_str+"availability"+html_str2)
+	pro.create_installation(safety: html_str+"safety"+html_str2,
+	 fabrication: html_str+"fabrication"+html_str2)
+	pro.create_manufacturing(inputs: html_str+"inputs"+html_str2,
+	 process: html_str+"process"+html_str2)
+	pro.create_performence(features: html_str+"features"+html_str2,
+	 maintenance: html_str+"maintenance"+html_str2,
+	  warranty: html_str+"warranty"+html_str2)
+	pro.create_overview(body: html_str+"Overview"+html_str2) 
+	pro.create_business(body: html_str+"Business"+html_str2)
+
+
+	pro = f.products.create! name: 'MRmaxi'
+	pro.create_design(selector: html_str+"selector"+html_str2,
+	 guide: html_str+"guide"+html_str2,
+	  area: html_str+"area"+html_str2,
+	   sectors: html_str+"sectors"+html_str2,
+	    finishes: html_str+"finishes"+html_str2,
+	     availability: html_str+"availability"+html_str2)
+	pro.create_installation(safety: html_str+"safety"+html_str2,
+	 fabrication: html_str+"fabrication"+html_str2)
+	pro.create_manufacturing(inputs: html_str+"inputs"+html_str2,
+	 process: html_str+"process"+html_str2)
+	pro.create_performence(features: html_str+"features"+html_str2,
+	 maintenance: html_str+"maintenance"+html_str2,
+	  warranty: html_str+"warranty"+html_str2)
+	pro.create_overview(body: html_str+"Overview"+html_str2) 
+	pro.create_business(body: html_str+"Business"+html_str2)
+
+else
+	puts "KPL already exists"
 end	
