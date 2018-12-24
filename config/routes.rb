@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :offices
   resources :resources
   resources :decors
-  resources :references
   resources :businesses
   resources :overviews
   resources :designs

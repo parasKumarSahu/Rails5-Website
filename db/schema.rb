@@ -63,13 +63,6 @@ ActiveRecord::Schema.define(version: 2018_12_22_124949) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "decors_references", force: :cascade do |t|
-    t.integer "decor_id"
-    t.integer "reference_id"
-    t.index ["decor_id"], name: "index_decors_references_on_decor_id"
-    t.index ["reference_id"], name: "index_decors_references_on_reference_id"
-  end
-
   create_table "designs", force: :cascade do |t|
     t.string "selector"
     t.string "guide"
@@ -163,13 +156,6 @@ ActiveRecord::Schema.define(version: 2018_12_22_124949) do
     t.index ["family_id"], name: "index_products_on_family_id"
   end
 
-  create_table "products_references", force: :cascade do |t|
-    t.integer "product_id"
-    t.integer "reference_id"
-    t.index ["product_id"], name: "index_products_references_on_product_id"
-    t.index ["reference_id"], name: "index_products_references_on_reference_id"
-  end
-
   create_table "questions", force: :cascade do |t|
     t.string "content"
     t.string "description"
@@ -185,20 +171,6 @@ ActiveRecord::Schema.define(version: 2018_12_22_124949) do
     t.string "image"
     t.string "image_type"
     t.integer "image_size"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "references", force: :cascade do |t|
-    t.string "tag"
-    t.string "project"
-    t.string "country_city"
-    t.string "address"
-    t.string "address_link"
-    t.string "installer"
-    t.string "installer_link"
-    t.string "owner"
-    t.string "owner_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
