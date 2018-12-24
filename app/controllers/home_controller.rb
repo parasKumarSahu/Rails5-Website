@@ -11,4 +11,6 @@ class HomeController < ApplicationController
   end	
   def business
   end	
+  def downloads    
+  end
 end
