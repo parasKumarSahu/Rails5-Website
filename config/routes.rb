@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :references
   resources :performences
   resources :installations
   resources :manufacturings
