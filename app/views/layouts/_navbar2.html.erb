@@ -16,7 +16,7 @@
     color: black;
 }
 #mark{
-    
+
 }
 </style>
 <nav class="navbar nav-cus bg-light" id="nav2" style="font-family: comic sans;margin-top: 130px">
@@ -85,7 +85,12 @@
 
 <script>
 $(document).ready(function(){
-  $('.dropdown-submenu a.test').on("click", function(e){
+  $('.dropdown-submenu a.test').on("mouseenter", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+  $('.dropdown-submenu a.test').on("mouseleave", function(e){
     $(this).next('ul').toggle();
     e.stopPropagation();
     e.preventDefault();
