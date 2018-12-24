@@ -13,4 +13,6 @@ class HomeController < ApplicationController
   end	
   def downloads    
   end
+  def references
+  end 
 end

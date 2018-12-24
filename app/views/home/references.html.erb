@@ -1,0 +1,42 @@
+<style>
+.container img {
+   width: 100%;
+   padding: 20px;
+   border-right: solid;
+}
+	
+</style>
+<header>
+    <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
+    	<h1><strong>Our Projects (<%= params[:par] %>)</strong></h1><hr>
+
+		<div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+			<%= link_to "All", "/home/references?par=all", class: "btn btn-secondary" %>	
+			<%= link_to "Residential", "/home/references?par=residential", class: "btn btn-secondary" %>	
+			<%= link_to "Commercial", "/home/references?par=commercial", class: "btn btn-secondary" %>	
+		</div>
+		<br><br><br>
+
+		<% Reference.all.each do |r|%>
+		<% if params[:par] == 'all' || (params[:par] == 'residential' && r.project_type.downcase == "residential") || (params[:par] == 'commercial' && r.project_type.downcase == "commercial") %>
+		<div class="container" style="  border-style: outset; padding:10px;background-color: silver">
+			<div class="row">
+				<div class="col-md-5">
+			    	<img src="<%= r.image%>">					
+				</div>
+				<div class="col-md-7">
+					<h3><strong>Project :</strong> <%= r.project%></h3>
+					<h3><strong>Project Type :</strong> <%= r.project_type%></h3>
+					<h3><strong>Location :</strong> <%= r.location%></h3>
+					<h3><strong>Product :</strong> <%= r.product%></h3>
+					<h3><strong>Quantity :</strong> <%= r.quantity%></h3>
+					<h3><strong>Products :</strong> <%= r.product%></h3>
+					<h3><strong>Project Codes :</strong> <%= r.code%></h3>
+				</div>
+			</div>			
+		</div>
+		<% end %>
+		<% end %>
+    </div>
+</header>
+

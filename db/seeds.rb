@@ -223,7 +223,7 @@ if Reference.count == 0
 		project: "RESIDENTIAL HOME",product: "GLOSS MEISTER",code: "21065, 25139",
 		 location: "Residential	RESIDENTIAL HOME", quantity: "4", year: 2017)
 
-	Reference.create!(image: "/reference/4.jpg",customer: "MR.SAMPATH SINGH",project_type: "Commercial",
+	Reference.create!(image: "/reference/4.png",customer: "MR.SAMPATH SINGH",project_type: "Commercial",
 		project: "COMMERCIAL D2",product: "GLOSS MEISTER",code: "21027 IRISH CREAM",
 		 location: "HOUSE NO.1005 SECTOR 27 CHD", quantity: "25 SHEETS", year: 2018)
 	Reference.create!(image: "/reference/5.jpg",customer: "MR. HIRDIYA NAND",project_type: "Commercial",
