@@ -12,6 +12,7 @@ if AdminUser.find_by(email: 'admin@example.com').nil?
 else
 	puts "User already exists"
 end
+'''
 
 Design.delete_all
 Overview.delete_all
@@ -19,12 +20,10 @@ Business.delete_all
 Installation.delete_all
 Manufacturing.delete_all
 Performence.delete_all
-Reference.delete_all
-
 
 Product.delete_all
 Family.delete_all
-
+'''
 html_str = '<p><big> '
 html_str2 = ' HTML<br /> &nbsp; <p>&nbsp;</p> <p><strong><img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf5Ds6M2i--Q0IKiKxt8P-cyYL4CAqkOkJT7iU9RlHWt29eIb5" style="width: 275px; height: 183px;" /></strong></p> </p"<big>'
 
@@ -215,20 +214,24 @@ else
 	puts "KPL already exists"
 end	
 
+Reference.delete_all
 
-CSV.foreach(Rails.root.join('db', 'data', 'references.csv'), headers: true) do |row|
-  Reference.create! do |t|
+
+count = 0
+csv_text = File.read(Rails.root.join('db', 'data', 'references.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
+csv.each do |row|
 	t = Reference.new
 	t.image = "/reference/1.jpg"
-	t.customer = row["customer"]
-	t.project_type = row["project_type"]
+	t.project_type = row["type"]
 	t.project = row["project"]
 	t.product = row["product"]
 	t.code = row["code"]
 	t.location = row["location"]
 	t.quantity = row["quantity"]
-	t.year = row["year"]
+	t.customer = row["customer"]
+	t.year = row["year"].to_i
 	t.save
-  end
+	puts row["customer"]
 end
 
