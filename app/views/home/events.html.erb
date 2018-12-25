@@ -1,0 +1,38 @@
+<style>
+.container img {
+   width: 100%;
+   padding: 20px;
+}
+
+h1{
+	font-size: 60px;
+	color: purple;
+}
+#banner{
+	width: 100%;
+}	
+</style>
+<header>
+    <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;">
+    	<img id="banner" src="/events/banner.jpg">
+    	<br><br><br><br>
+		<% Reference.all.limit(5).each do |r|%>
+		<div class="container" style="padding:20px;background-color: rgba(192,192,192,0.05);">
+			<div class="row">
+				<div class="col-md-5">
+			    	<img src="<%= r.image%>">					
+				</div>
+				<div class="col-md-7" style="text-align: left">
+					<h3><strong>Event :</strong> <%= r.project%></h3>
+					<h3><strong>Location :</strong> <%= r.location%></h3>
+					<h3><strong>Host :</strong> <%= r.customer%></h3>
+					<h3><strong>Date :</strong> <%= r.year%></h3>
+
+				</div>
+			</div>			
+		</div>
+		<br><br><br><br>
+		<% end %>
+    </div>
+</header>
+

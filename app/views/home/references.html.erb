@@ -4,7 +4,10 @@
    padding: 20px;
    border-right: solid;
 }
-	
+h1{
+	font-size: 60px;
+	color: purple;
+}	
 </style>
 <header>
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
@@ -19,12 +22,12 @@
 
 		<% Reference.all.each do |r|%>
 		<% if params[:par] == 'all' || (params[:par] == 'residential' && r.project_type.downcase == "residential") || (params[:par] == 'commercial' && r.project_type.downcase == "commercial") %>
-		<div class="container" style="  border-style: outset; padding:10px;background-color: silver">
+		<div class="container" style="padding:20px;background-color: rgba(192,192,192,0.4);">
 			<div class="row">
 				<div class="col-md-5">
 			    	<img src="<%= r.image%>">					
 				</div>
-				<div class="col-md-7">
+				<div class="col-md-7" style="text-align: left">
 					<h3><strong>Project :</strong> <%= r.project%></h3>
 					<h3><strong>Project Type :</strong> <%= r.project_type%></h3>
 					<h3><strong>Product :</strong> <%= r.product%></h3>
@@ -37,6 +40,7 @@
 				</div>
 			</div>			
 		</div>
+		<hr>
 		<% end %>
 		<% end %>
     </div>

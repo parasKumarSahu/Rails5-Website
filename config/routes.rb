@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get 'home/business'
   get 'home/downloads'
   get 'home/references'
+  get 'home/events'
   # For detail  s on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
  
