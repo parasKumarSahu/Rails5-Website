@@ -60,10 +60,12 @@ if Family.count == 0
 			puts "created #{row["family"]} > #{row["product"]}"
 		end
 	end
+else
+	puts "Products already exist"	
 end	
 
 
-#Reference.delete_all
+Reference.delete_all
 
 if Reference.count == 0
 	csv_text = File.read(Rails.root.join('db', 'data', 'references.csv'))
@@ -82,4 +84,23 @@ if Reference.count == 0
 		t.save
 		puts row["customer"]
 	end
+else
+	puts "Refrences already exist"		
+end
+
+Quote.delete_all
+
+if Quote.count == 0
+	csv_text = File.read(Rails.root.join('db', 'data', 'quotes.csv'))
+	csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
+	csv.each do |row|
+		t = Quote.new
+		t.day_number = row["day"]
+		t.content = row["content"]
+		t.speaker = row["speaker"]
+		t.save
+		puts row["content"]
+	end
+else
+	puts "Quotes already exist"		
 end

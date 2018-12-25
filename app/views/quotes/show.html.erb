@@ -1,23 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @quote.description %>
+  <strong>Day number:</strong>
+  <%= @quote.day_number %>
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @quote.image %>
+  <strong>Content:</strong>
+  <%= @quote.content %>
 </p>
 
 <p>
-  <strong>Image type:</strong>
-  <%= @quote.image_type %>
-</p>
-
-<p>
-  <strong>Image size:</strong>
-  <%= @quote.image_size %>
+  <strong>Speaker:</strong>
+  <%= @quote.speaker %>
 </p>
 
 <%= link_to 'Edit', edit_quote_path(@quote) %> |

@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
+  resources :quotes
   resources :references
   resources :performences
   resources :installations
   resources :manufacturings
   resources :questions
   resources :learns
-  resources :quotes
   resources :events
   resources :certifications
   resources :offices

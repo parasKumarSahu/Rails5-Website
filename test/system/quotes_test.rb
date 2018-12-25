@@ -14,10 +14,9 @@ class QuotesTest < ApplicationSystemTestCase
     visit quotes_url
     click_on "New Quote"
 
-    fill_in "Description", with: @quote.description
-    fill_in "Image", with: @quote.image
-    fill_in "Image size", with: @quote.image_size
-    fill_in "Image type", with: @quote.image_type
+    fill_in "Content", with: @quote.content
+    fill_in "Day number", with: @quote.day_number
+    fill_in "Speaker", with: @quote.speaker
     click_on "Create Quote"
 
     assert_text "Quote was successfully created"
@@ -28,10 +27,9 @@ class QuotesTest < ApplicationSystemTestCase
     visit quotes_url
     click_on "Edit", match: :first
 
-    fill_in "Description", with: @quote.description
-    fill_in "Image", with: @quote.image
-    fill_in "Image size", with: @quote.image_size
-    fill_in "Image type", with: @quote.image_type
+    fill_in "Content", with: @quote.content
+    fill_in "Day number", with: @quote.day_number
+    fill_in "Speaker", with: @quote.speaker
     click_on "Update Quote"
 
     assert_text "Quote was successfully updated"

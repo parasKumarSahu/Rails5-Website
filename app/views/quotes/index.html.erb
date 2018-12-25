@@ -5,10 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Description</th>
-      <th>Image</th>
-      <th>Image type</th>
-      <th>Image size</th>
+      <th>Day number</th>
+      <th>Content</th>
+      <th>Speaker</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +15,9 @@
   <tbody>
     <% @quotes.each do |quote| %>
       <tr>
-        <td><%= quote.description %></td>
-        <td><%= quote.image %></td>
-        <td><%= quote.image_type %></td>
-        <td><%= quote.image_size %></td>
+        <td><%= quote.day_number %></td>
+        <td><%= quote.content %></td>
+        <td><%= quote.speaker %></td>
         <td><%= link_to 'Show', quote %></td>
         <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
         <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>

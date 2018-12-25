@@ -2,8 +2,7 @@ ActiveAdmin.register Quote do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :description, :image, :image_type, :image_size
-
+permit_params :day_number, :content, :speaker
 #
 # or
 #

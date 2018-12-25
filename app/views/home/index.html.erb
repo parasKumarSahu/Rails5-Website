@@ -8,9 +8,9 @@
 			   <button class="btn btn-primary">Learn more</button>
 			</div>
 			<div class="blue-gradient" style="padding: 20px">
-				<p class="text-center" style="font-size: 25px;font-weight: 5;padding-top: 20px">Quote of the Week!</p><br>
-				<h2 class="text-center"><strong>The mind is everything. What you think you become.</strong></h2>
-				<h3 class="text-center">-Budha</h3>
+				<p class="text-center" style="font-size: 25px;font-weight: 5;padding-top: 20px">Quote of the Day!</p><br>
+				<h2 class="text-center"><strong><%= Quote.last.content %></strong></h2>
+				<h3 class="text-center">-<%= Quote.last.speaker %></h3>
 			</div>
 			<div style="background-color: silver;">
 
