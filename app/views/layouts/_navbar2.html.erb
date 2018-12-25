@@ -85,16 +85,14 @@
 
 <script>
 $(document).ready(function(){
-  $('.dropdown-submenu a.test').on("mouseenter", function(e){
-    $(this).next('ul').toggle();
-    e.stopPropagation();
-    e.preventDefault();
-  });
-  $('.dropdown-submenu a.test').on("mouseleave", function(e){
-    $(this).next('ul').toggle();
-    e.stopPropagation();
-    e.preventDefault();
-  });
+    $('.dropdown-submenu a.test').hover(
+      function () {
+        $(this).next('ul').delay(500).fadeIn('slow');
+      }, 
+      function () {
+        $(this).next('ul').delay(2000).fadeOut('slow');
+      }
+    );
 });
 </script>
 
