@@ -6,4 +6,5 @@ class Product < ApplicationRecord
   has_one :installation
   has_one :performence
   has_one :business
+  has_many :resources
 end

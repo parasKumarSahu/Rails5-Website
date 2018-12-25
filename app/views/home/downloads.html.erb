@@ -18,33 +18,62 @@
 <header>
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
     	<div class="container">
-    		<div class="col-md-6 group-1">
+    		<div class="col-md-7 group-1">
     			<h1>Files to Download</h1><hr>
-		    	<div class="list_item"><%= link_to "download", download_file_path+"?file=test.pdf", class: "btn btn-info btn-block my_btn" %></div><hr>
-		    	<div class="list_item"><%= link_to "download", download_file_path+"?file=test.pdf", class: "btn btn-info btn-block my_btn" %></div><hr>
-		    	<div class="list_item"><%= link_to "download", download_file_path+"?file=test.pdf", class: "btn btn-info btn-block my_btn" %></div><hr>
-		    	<div class="list_item"><%= link_to "download", download_file_path+"?file=test.pdf", class: "btn btn-info btn-block my_btn" %></div><hr>
-		    	<div class="list_item"><%= link_to "download", download_file_path+"?file=test.pdf", class: "btn btn-info btn-block my_btn" %></div><hr>
+    			<% Resource.all.each do |r| %>
+    			<% if params[:category] == "all" || params[:category] == r.category %>
+    			<% if params[:product] == "all" || params[:product] == r.product.name %>
+			    	<div class="list_item">
+			    		<%= link_to r.name, download_file_path+"?file=" + r.link, class: "btn btn-info btn-block my_btn" %>		    		
+			    	</div><hr>
+			    <% end %>	
+			    <% end %>	
+		    	<% end %>
     		</div>	
-    		<div class="col-md-2"></div>
+    		<div class="col-md-1"></div>
     		<div class="col-md-4 group-2">
     			<h1>Filter Downloads</h1>
     			<hr>
     			<h3>Product</h3>
-				<select class="form-control form-control-lg">
-				  <option>Large select</option>
-				  <option>Large select</option>
-				  <option>Large select</option>
+				<select id="select-1" class="form-control form-control-lg" onchange="change_category()">
+					<option selected="selected">Select product filter</option>
+					<option value="all">All</option>
+				<% Product.all.each do |p| %>	
+					<option value="<%== p.name %>"><%= p.name %></option>
+				<% end %>  
 				</select>
-				<br>
 				<h3>Document Type</h3>
-				<select class="form-control form-control-lg">
-				  <option>Large select</option>
+				<select id="select-2" class="form-control form-control-lg" onchange="change_category2()">
+					<option selected="selected">Select category filter</option>
+					<option value="all">All</option>
+					<option value="Brochure">Brochure</option>
+					<option value="Certificate">Certificate</option>
+					<option value="Technical">Technical data sheet</option>
+					<option value="Decor">Decor Swatch</option>
+					<option value="Environment">Environment and sustainability</option>
 				</select>
 				<br><br>
-				<button type="submit" class="btn btn-primary mb-2">Apply</button>
+				<button type="submit onclick="send_post()" class="btn btn-primary mb-2">Apply</button>
     		</div>	
     	</div>
 
     </div>
 </header>
+<script>
+	var category = "<%= params[:category] %>";
+	var product = "<%= params[:product] %>";
+	console.log(category);
+	console.log(product);
+	function change_category2(){
+		category = document.getElementById('select-2').value;
+		console.log(category);
+	}
+	function change_category(){
+		product = document.getElementById('select-1').value;
+		console.log(product);
+	}
+	$("button").click(function() {
+		location = "/home/downloads?product="+product+"&category="+category;
+	});
+</script>
+

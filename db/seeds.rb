@@ -104,3 +104,35 @@ if Quote.count == 0
 else
 	puts "Quotes already exist"		
 end
+
+Resource.delete_all
+
+if Resource.count == 0
+	Product.all.each do |p|
+		p.resources.create!(
+			name: "brochure_" + p.name,
+			link: "brochure.pdf",
+			category: "Brochure",
+			)
+		p.resources.create!(
+			name: "certificate_" + p.name,
+			link: "certificate.pdf",
+			category: "Certificate",
+			)
+		p.resources.create!(
+			name: "data_sheet_" + p.name,
+			link: "data_sheet.xls",
+			category: "Technical",
+			)
+		p.resources.create!(
+			name: "decor_" + p.name,
+			link: "decor.png",
+			category: "Decor",
+			)
+		p.resources.create!(
+			name: "environment_" + p.name,
+			link: "environment.txt",
+			category: "Environment",
+			)
+	end	
+end
