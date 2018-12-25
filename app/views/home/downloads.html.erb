@@ -1,0 +1,50 @@
+<style>
+.group-1{
+	text-align: left;
+	padding: 30px;
+}	
+.group-2{
+	margin-top: 60px;
+	padding: 30px;
+	background-color: rgba(192,192,192,0.4);
+}	
+.list_item{
+}
+.my_btn{
+	font-size: 30px;
+	text-align: left;
+}
+</style>
+<header>
+    <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
+    	<div class="container">
+    		<div class="col-md-6 group-1">
+    			<h1>Files to Download</h1><hr>
+		    	<div class="list_item"><%= link_to "download", download_file_path+"?file=test.pdf", class: "btn btn-info btn-block my_btn" %></div><hr>
+		    	<div class="list_item"><%= link_to "download", download_file_path+"?file=test.pdf", class: "btn btn-info btn-block my_btn" %></div><hr>
+		    	<div class="list_item"><%= link_to "download", download_file_path+"?file=test.pdf", class: "btn btn-info btn-block my_btn" %></div><hr>
+		    	<div class="list_item"><%= link_to "download", download_file_path+"?file=test.pdf", class: "btn btn-info btn-block my_btn" %></div><hr>
+		    	<div class="list_item"><%= link_to "download", download_file_path+"?file=test.pdf", class: "btn btn-info btn-block my_btn" %></div><hr>
+    		</div>	
+    		<div class="col-md-2"></div>
+    		<div class="col-md-4 group-2">
+    			<h1>Filter Downloads</h1>
+    			<hr>
+    			<h3>Product</h3>
+				<select class="form-control form-control-lg">
+				  <option>Large select</option>
+				  <option>Large select</option>
+				  <option>Large select</option>
+				</select>
+				<br>
+				<h3>Document Type</h3>
+				<select class="form-control form-control-lg">
+				  <option>Large select</option>
+				</select>
+				<br><br>
+				<button type="submit" class="btn btn-primary mb-2">Apply</button>
+    		</div>	
+    	</div>
+
+    </div>
+</header>

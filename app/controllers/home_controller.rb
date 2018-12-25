@@ -15,4 +15,7 @@ class HomeController < ApplicationController
   end
   def references
   end 
+  def download_file
+    send_file "#{Rails.root}/public/docs/#{params[:file]}", x_sendfile: true
+  end  
 end
