@@ -13,16 +13,20 @@ else
 	puts "User already exists"
 end
 
+puts "Do you want to import product data? Enter yes to continue."
+user_string = STDIN.gets.strip
 
-Design.delete_all
-Overview.delete_all
-Business.delete_all
-Installation.delete_all
-Manufacturing.delete_all
-Performence.delete_all
+if user_string == "yes"
+	Design.delete_all
+	Overview.delete_all
+	Business.delete_all
+	Installation.delete_all
+	Manufacturing.delete_all
+	Performence.delete_all
 
-Product.delete_all
-Family.delete_all
+	Product.delete_all
+	Family.delete_all
+end
 
 html_str = '<p><big> '
 html_str2 = ' HTML<br /> &nbsp; <p>&nbsp;</p> <p><strong><img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf5Ds6M2i--Q0IKiKxt8P-cyYL4CAqkOkJT7iU9RlHWt29eIb5" style="width: 275px; height: 183px;" /></strong></p> </p"<big>'
@@ -64,15 +68,21 @@ else
 	puts "Products already exist"	
 end	
 
+puts "Do you want to import reference data? Enter yes to continue."
+user_string = STDIN.gets.strip
 
-Reference.delete_all
+if user_string == "yes"
+	Reference.delete_all
+end
+
+ref_img_path = ["/reference/1.jpg", "/reference/2.jpg", "/reference/3.jpg", "/reference/4.jpg"]
 
 if Reference.count == 0
 	csv_text = File.read(Rails.root.join('db', 'data', 'references.csv'))
 	csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
 	csv.each do |row|
 		t = Reference.new
-		t.image = "/reference/1.jpg"
+		t.image = ref_img_path.sample
 		t.project_type = row["type"]
 		t.project = row["project"]
 		t.product = row["product"]
@@ -88,7 +98,12 @@ else
 	puts "Refrences already exist"		
 end
 
-Quote.delete_all
+puts "Do you want to import quotes data? Enter yes to continue."
+user_string = STDIN.gets.strip
+
+if user_string == "yes"
+	Quote.delete_all
+end
 
 if Quote.count == 0
 	csv_text = File.read(Rails.root.join('db', 'data', 'quotes.csv'))
@@ -105,7 +120,12 @@ else
 	puts "Quotes already exist"		
 end
 
-Resource.delete_all
+puts "Do you want to import resource data? Enter yes to continue."
+user_string = STDIN.gets.strip
+
+if user_string == "yes"
+	Resource.delete_all
+end
 
 if Resource.count == 0
 	Product.all.each do |p|
@@ -135,4 +155,20 @@ if Resource.count == 0
 			category: "Environment",
 			)
 	end	
+else
+	puts "Resource already exists"	
+end
+
+puts "Do you want to import events data? Enter yes to continue."
+user_string = STDIN.gets.strip
+
+if user_string == "yes"
+	Event.delete_all
+end
+
+if Event.count == 0
+	Event.create!(name: "Sales Meeting", caption: "Sales meeting at myMerino", other:"/events/1.jpg")
+	Event.create!(name: "Showroom Launch", caption: "Latest showroom inagurated at New Delhi", other:"/events/2.jpg")
+else
+	puts "Events already exists"	
 end

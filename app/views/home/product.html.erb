@@ -1,7 +1,8 @@
 <style>
 .features-boxed {
   color:#313437;
-  background-color:#eef4f7;
+  background-color: grey;
+  border-radius: 40px;
 }
 
 .features-boxed p {
@@ -45,10 +46,11 @@
   padding:20px;
   margin-bottom:50px;
   border-style: groove;
+  border-radius: 50px;
 }
 
 .box:hover {
-	background-color: rgba(192,192,192,0.7);
+	background-color: rgba(192,192,192,0.2);
 	color: white;
 }
 
@@ -58,8 +60,11 @@
 <style>
 h1{
 	font-size: 60px;
-	color: purple;
+	color: white;
 }	
+h4{
+	color: white;
+}
 </style>
 
 
@@ -99,6 +104,7 @@ h1{
 				    <span class="sr-only">Next</span>
 				  </a>
 				</div>
+				<hr>
 
 
 
@@ -119,7 +125,7 @@ h1{
 						<% f.products.each do |p|%>
 							<%= link_to "/home/overview?product="+p.name do%>
 				            <div class="col-sm-5 col-md-5 col-lg-4 item">
-				                <div class="box"  style="background-color: rgba(192,192,192,0.8)">
+				                <div class="box"  style="background-color: rgba(192,192,192,0.5)">
 				                    <h3 class="name"><%= p.name %></h3>
 								</div>
 				            </div>

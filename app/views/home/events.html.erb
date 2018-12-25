@@ -2,6 +2,9 @@
 .container img {
    width: 100%;
    padding: 20px;
+   border-right: solid;
+   border-radius: 15px 50px;
+   border-left: solid;
 }
 
 h1{
@@ -10,24 +13,31 @@ h1{
 }
 #banner{
 	width: 100%;
+	border-radius: 0 0 70px 70px;
 }	
+.event-content{
+	font-size: 30px;
+}
+.event-header{
+	background-color: rgba(192,192,192,0.5);
+}
+.round-box{
+	border-radius: 50px;
+}
 </style>
-<header>
+<header class="event-header">
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;">
     	<img id="banner" src="/events/banner.jpg">
     	<br><br><br><br>
-		<% Reference.all.limit(5).each do |r|%>
-		<div class="container" style="padding:20px;background-color: rgba(192,192,192,0.05);">
+		<% Event.all.each do |e|%>
+		<div class="container round-box" style="padding:20px;background-color: rgba(192,192,192,0.4);">
 			<div class="row">
 				<div class="col-md-5">
-			    	<img src="<%= r.image%>">					
+			    	<img src="<%= e.other%>">					
 				</div>
 				<div class="col-md-7" style="text-align: left">
-					<h3><strong>Event :</strong> <%= r.project%></h3>
-					<h3><strong>Location :</strong> <%= r.location%></h3>
-					<h3><strong>Host :</strong> <%= r.customer%></h3>
-					<h3><strong>Date :</strong> <%= r.year%></h3>
-
+					<h1><%= e.name %></h1>
+					<h4 class="event-content"><%= e.caption %></p>
 				</div>
 			</div>			
 		</div>

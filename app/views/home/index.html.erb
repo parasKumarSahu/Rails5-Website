@@ -1,11 +1,11 @@
 <style>
 h1{
 	font-size: 60px;
-	color: blue;
+	color: white;
 }	
 </style>
 <header>
-    <div class="header-content page-wrap"  style="background-color: #eef4f7;">
+    <div class="header-content page-wrap"  style="background-color: white;">
         <div class="header-content-inner">
 			<div style="padding-left: 30px;padding-bottom: 50px;background-color: rgba(192,192,192,0.5);">
 			   <p style="padding: 40px 0px 0px 0px; font-size: 40px;font-weight:lighter;">Hello, Dear Merino Family Member!</p><br>
@@ -18,7 +18,7 @@ h1{
 				<h2 class="text-center"><strong><%= Quote.last.content %></strong></h2>
 				<h3 class="text-center">-<%= Quote.last.speaker %></h3>
 			</div>
-			<div style="background-color: rgba(192,192,192,0.8);">
+			<div class="bg-dark" ">
 
 				<hr>
 				<h1>Products</h1>
@@ -59,7 +59,7 @@ h1{
 			</div>			
 			<hr>
 
-			<div class="container" style="background-color: rgba(192,192,192,0.8);">
+			<div class="container bg-dark">
 
 				<hr>
 				<h1>Events</h1>
@@ -79,24 +79,17 @@ h1{
 
 						  <!-- Wrapper for slides -->
 						<div class="carousel-inner">
-						    <div class="item active">
-						      <img src="/events/1.jpg" alt="Sales Meeting">
-
+							<% state = "active" %>
+							<% Event.all.each do |e| %>
+						    <div class="item <%= state %>">
+						      <img src="<%= e.other %>" >
+						      	  <% state = "" %>
 								  <div class="carousel-caption d-none d-md-block" style="background-color: white; color: black;">
-								    <h2>Sales Metting</h2>
-								    <p>Sales Metting at MyMerino</p>
+								    <h2><%= e.name %></h2>
+								    <p><%= e.caption %></p>
 								  </div>
-
 						    </div>
-						    <div class="item">
-						      <img src="/events/2.jpg" alt="Showroom Launch">
-
-							  <div class="carousel-caption d-none d-md-block" style="background-color: white; color: black;">
-							    <h2>Showroom Launch</h2>
-							    <p>Delhi: Latest showrroom inaugrated in North Delhi.</p>
-							  </div>
-
-						    </div>
+						    <% end %>
 
 						  <!-- Left and right controls -->
 						  <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
