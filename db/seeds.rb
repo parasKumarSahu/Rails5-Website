@@ -172,3 +172,24 @@ if Event.count == 0
 else
 	puts "Events already exists"	
 end
+
+puts "Do you want to import Learning videos data? Enter yes to continue."
+user_string = STDIN.gets.strip
+
+if user_string == "yes"
+	Learn.delete_all
+end
+
+if Learn.count == 0
+	Learn.create!(video_link: "https://s3.ap-south-1.amazonaws.com/training-videos-merino/HPL101-Part2.mp4",
+		thumbnail: "//s3-ap-south-1.amazonaws.com/mymerinoproduction1/academy/videos/thumbnails/2HPL_101_2-2.jpg?1533277411"
+		)
+	Learn.create!(video_link: "https://s3.ap-south-1.amazonaws.com/training-videos-merino/HPL101-Part1.mp4",
+		thumbnail: "//s3-ap-south-1.amazonaws.com/mymerinoproduction1/academy/videos/thumbnails/1HPL_101_2-1.jpg?1533277428"
+		)
+	Learn.create!(video_link: "https://s3.ap-south-1.amazonaws.com/training-videos-merino/UnbelievableFacts.mp4",
+		thumbnail: "//s3-ap-south-1.amazonaws.com/mymerinoproduction1/academy/videos/thumbnails/3learning_covers-1.jpg?1533277837"
+		)
+else
+	puts "Learniing videos already exist"	
+end

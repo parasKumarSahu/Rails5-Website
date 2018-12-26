@@ -18,4 +18,6 @@ class HomeController < ApplicationController
   def download_file
     send_file "#{Rails.root}/public/docs/#{params[:file]}", x_sendfile: true
   end  
+  def academy
+  end  
 end

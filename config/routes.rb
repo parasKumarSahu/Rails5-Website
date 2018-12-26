@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'home/references'
   get 'home/events'
   get 'download_file', to: "home#download_file"
+  get 'home/academy'
   # For detail  s on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
  
