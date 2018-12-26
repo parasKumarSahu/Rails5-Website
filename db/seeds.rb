@@ -173,23 +173,28 @@ else
 	puts "Events already exists"	
 end
 
-puts "Do you want to import Learning videos data? Enter yes to continue."
+puts "Do you want to import Learning course videos data? Enter yes to continue."
 user_string = STDIN.gets.strip
 
 if user_string == "yes"
+	Course.delete_all
 	Learn.delete_all
 end
 
-if Learn.count == 0
-	Learn.create!(video_link: "https://s3.ap-south-1.amazonaws.com/training-videos-merino/HPL101-Part2.mp4",
-		thumbnail: "//s3-ap-south-1.amazonaws.com/mymerinoproduction1/academy/videos/thumbnails/2HPL_101_2-2.jpg?1533277411"
-		)
-	Learn.create!(video_link: "https://s3.ap-south-1.amazonaws.com/training-videos-merino/HPL101-Part1.mp4",
-		thumbnail: "//s3-ap-south-1.amazonaws.com/mymerinoproduction1/academy/videos/thumbnails/1HPL_101_2-1.jpg?1533277428"
-		)
-	Learn.create!(video_link: "https://s3.ap-south-1.amazonaws.com/training-videos-merino/UnbelievableFacts.mp4",
-		thumbnail: "//s3-ap-south-1.amazonaws.com/mymerinoproduction1/academy/videos/thumbnails/3learning_covers-1.jpg?1533277837"
-		)
+if Learn.count == 0 && Course.count == 0
+	csv_text = File.read(Rails.root.join('db', 'data', 'courses.csv'))
+	csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
+	csv.each do |row|
+		t = Course.find_by name: row["course"]
+		if t == nil
+			t = Course.new
+			t.name = row["course"]
+			t.save
+		end	
+		t.learns.create(video_link: row["video"], thumbnail: row["thumbnail"])
+		puts row["course"] + row["video"]
+	end
+
 else
-	puts "Learniing videos already exist"	
+	puts "Learniing videos or courses already exist"	
 end
