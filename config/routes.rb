@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contacts
   resources :courses
   resources :quotes
   resources :references
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
   get 'home/events'
   get 'download_file', to: "home#download_file"
   get 'home/academy'
+  get 'contact_us', to: "home#contact_us"
   # For detail  s on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
  
