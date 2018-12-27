@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_infos
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   get 'download_file', to: "home#download_file"
   get 'home/academy'
   get 'contact_us', to: "home#contact_us"
+  get 'home/user'
   # For detail  s on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
  

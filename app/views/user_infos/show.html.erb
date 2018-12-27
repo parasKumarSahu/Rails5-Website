@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user_info.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @user_info.image %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_info.user %>
+</p>
+
+<p>
+  <strong>Designation:</strong>
+  <%= @user_info.designation %>
+</p>
+
+<p>
+  <strong>Permanent office:</strong>
+  <%= @user_info.permanent_office %>
+</p>
+
+<p>
+  <strong>Current office:</strong>
+  <%= @user_info.current_office %>
+</p>
+
+<p>
+  <strong>Extension:</strong>
+  <%= @user_info.extension %>
+</p>
+
+<p>
+  <strong>Mob number:</strong>
+  <%= @user_info.mob_number %>
+</p>
+
+<p>
+  <strong>Alt number:</strong>
+  <%= @user_info.alt_number %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @user_info.birthday %>
+</p>
+
+<%= link_to 'Edit', edit_user_info_path(@user_info) %> |
+<%= link_to 'Back', user_infos_path %>
