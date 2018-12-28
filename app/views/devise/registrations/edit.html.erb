@@ -1,7 +1,7 @@
 <header>
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
 
-      <div class="container" style="width: 60%">
+      <div class="container" style="width: 40%">
 
 
           <h2>Edit <%= resource_name.to_s.humanize %></h2>
@@ -19,7 +19,7 @@
             <% end %>
 
             <div class="field">
-              <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+              <%= f.label :password %> <br />
               <%= f.password_field :password, autocomplete: "new-password" %>
               <% if @minimum_password_length %>
                 <br />
@@ -33,16 +33,16 @@
             </div>
 
             <div class="field">
-              <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+              <%= f.label :current_password %><br />
               <%= f.password_field :current_password, autocomplete: "current-password" %>
             </div>
 
             <div class="actions">
-              <%= f.submit "Update" %>
+              <%= f.submit "Update", class: "btn btn-primary" %>
             </div>
           <% end %>
 
-          <%= link_to "Back", :back %>
+          <h2><%= link_to "Back", :back %></h2>
 
         
       </div>

@@ -1,3 +1,5 @@
+<% if user_signed_in? %>
+
 <style>
 nav.navbar.navbar-inverse {
     min-height: 120px;
@@ -50,7 +52,6 @@ nav.navbar.navbar-inverse {
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <% if user_signed_in? %>
 
               <li class="dropdown nav-item">
                  <a class="nav-item dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-lg"></i>&nbsp;My Account <b class="caret"></b></a>
@@ -68,12 +69,11 @@ nav.navbar.navbar-inverse {
                  </ul>
               </li>
 
-            <% end %>
-
           </ul>
         </div>
       </div>
     </nav>
+<% end %>
 
 
 

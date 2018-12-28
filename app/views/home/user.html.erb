@@ -7,7 +7,6 @@
 	border-radius: 0 50px 0 50px;
 	background-color: silver;
 	padding: 50px;
-	text-align: left;
 }	
 h1{
 	font-size: 40px;
@@ -22,17 +21,21 @@ h2{
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
         <div class="header-content-inner">
         	<% u = current_user.user_info %>	
-			<h1><%= u.name %></h1><hr>
-			<img src="<%= u.image %>"><hr>
-			<h2><strong>Designation:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.designation %></h2>
-			<h2><strong>Permanenet Office:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.permanent_office %></h2>
-			<h2><strong>Current Office:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.current_office %></h2>
-			<h2><strong>Extension:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.extension %></h2>
-			<h2><strong>Phone Number:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.mob_number %></h2>
-			<h2><strong>Alternate Number:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.alt_number %></h2>
-			<h2><strong>Date of Birth:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.birthday %></h2>
-			<hr>
-			<h2><%= link_to "Change Email", edit_user_registration_path %></h2>
+        	<% if u != nil %>
+				<h1><%= u.name %></h1><hr>
+				<img src="<%= u.image %>"><hr>
+				<h2><strong>Designation:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.designation %></h2>
+				<h2><strong>Permanent Office:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.permanent_office %></h2>
+				<h2><strong>Current Office:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.current_office %></h2>
+				<h2><strong>Extension:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.extension %></h2>
+				<h2><strong>Phone Number:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.mob_number %></h2>
+				<h2><strong>Alternate Number:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.alt_number %></h2>
+				<h2><strong>Date of Birth:&nbsp;&nbsp;&nbsp;&nbsp;</strong><%= u.birthday %></h2>
+				<hr>
+				<h2><%= link_to "Change email or password", edit_user_registration_path, class: "btn btn-primary" %></h2>
+			<% else %>
+				<h1>Your profile is not created, contact admin to add your details.</h1>
+			<% end %>	
         </div>
     </div>
 </header>

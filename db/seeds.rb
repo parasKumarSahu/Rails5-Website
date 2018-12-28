@@ -13,6 +13,40 @@ else
 	puts "User already exists"
 end
 
+puts "Do you want to import users data data? Enter yes to continue."
+user_string = STDIN.gets.strip
+
+if user_string == "yes"
+	UserInfo.delete_all
+	User.delete_all
+end
+
+if UserInfo.count == 0
+	csv_text = File.read(Rails.root.join('db', 'data', 'user.csv'))
+	csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
+	csv.each do |row|
+		t = User.find_by email: row["email"]
+		if t == nil
+			User.create!({:email => row["email"],
+			 :password => row["password"],
+			  :password_confirmation => row["password"] })
+		end	
+		t = User.find_by email: row["email"]
+		t.create_user_info( name: row["name"],
+			image: row["image"],
+			designation: row["designation"],
+			permanent_office: row["permanent_office"],
+			current_office: row["current_office"],
+			extension: row["extension"],
+			mob_number: row["mob_number"],
+			alt_number: row["alt_number"],
+			birthday: row["birthday"])
+		puts row["email"]+" profile created"
+	end
+else
+	puts "Quotes already exist"		
+end
+
 puts "Do you want to import product data? Enter yes to continue."
 user_string = STDIN.gets.strip
 
