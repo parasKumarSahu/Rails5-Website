@@ -9,11 +9,16 @@ class HomeController < ApplicationController
   end
   def technical
   end	
+  def events
+    @events = Event.paginate(:page => params[:page], :per_page => 5)   
+  end  
   def business
   end	
   def downloads    
+    @resources = Resource.paginate(:page => params[:page], :per_page => 5)   
   end
   def references
+    @references = Reference.paginate(:page => params[:page], :per_page => 5)   
   end 
   def academy
   end  

@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'will_paginate'
+
 gem 'devise'
 gem 'activeadmin'
 gem 'paperclip'

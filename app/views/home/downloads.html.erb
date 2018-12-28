@@ -22,7 +22,7 @@
     	<div class="container">
     		<div class="col-md-7 group-1">
     			<h1>Files to Download</h1><hr>
-    			<% Resource.all.each do |r| %>
+    			<% @resources.each do |r| %>
     			<% if params[:category] == "all" || params[:category] == r.category %>
     			<% if params[:product] == "all" || params[:product] == r.product.name %>
 			    	<div class="list_item">
@@ -58,7 +58,7 @@
 				<button type="submit onclick="send_post()" class="btn btn-primary mb-2">Apply</button>
     		</div>	
     	</div>
-
+    	<%= will_paginate @resources %>
     </div>
 </header>
 <script>
