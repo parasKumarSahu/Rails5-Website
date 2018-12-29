@@ -26,8 +26,17 @@ h1{
 		</div>
 		<br><br><br>
 
-		<% @references.each do |r|%>
-		<% if params[:par] == 'all' || (params[:par] == 'residential' && r.project_type.downcase == "residential") || (params[:par] == 'commercial' && r.project_type.downcase == "commercial") %>
+		<% if params[:par] == 'all'
+		 	r_obj = @references
+		 end %>
+		<% if params[:par] == 'residential'
+			r_obj = @residentials
+		end	%>
+		<% if params[:par] == 'commercial'
+			r_obj = @commercials
+		end	%>
+
+		<% r_obj.each do |r|%>
 		<div class="container round-box" style="padding:20px;background-color: rgba(192,192,192,0.4);">
 			<div class="row">
 				<div class="col-md-5">
@@ -48,9 +57,8 @@ h1{
 		</div>
 		<hr>
 		<% end %>
-		<% end %>
 
-		<%= will_paginate @references %>
+		<h3><%= will_paginate r_obj %></h3>
     </div>
 </header>
 

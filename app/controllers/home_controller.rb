@@ -18,7 +18,9 @@ class HomeController < ApplicationController
     @resources = Resource.paginate(:page => params[:page], :per_page => 5)   
   end
   def references
-    @references = Reference.paginate(:page => params[:page], :per_page => 5)   
+    @references = Reference.paginate(:page => params[:page], :per_page => 5)  
+    @residentials = Reference.all.where(project_type: "Residential").paginate(:page => params[:page], :per_page => 5)       
+    @commercials = Reference.all.where(project_type: "Commercial").paginate(:page => params[:page], :per_page => 5)       
   end 
   def academy
   end  
