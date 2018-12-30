@@ -24,9 +24,16 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+ 
+
+    <!-- Anti theft measure -->
+    <style type="text/css" media="print">
+    * { display: none; }
+    </style>
+
   </head>
 
-  <body style="margin-top: 50px">
+  <body style="margin-top: 50px" class="disableEvent">
     <%= render 'layouts/navbar' %>  
 
     <% if notice %>
