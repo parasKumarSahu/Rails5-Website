@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+
 gem 'listen', '>= 3.0.5', '< 3.2'
 
 ruby '2.5.1'
@@ -15,7 +16,14 @@ gem 'ckeditor'#, github: ‘galetahub/ckeditor’
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+group :production do
+  gem 'pg'
+end
+
+group :development, :test do
+  gem 'sqlite3'
+end
 # Use Puma as the app server
 #gem 'puma', '~> 3.11'
 gem "passenger"
