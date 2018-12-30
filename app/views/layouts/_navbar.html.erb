@@ -75,24 +75,23 @@ nav.navbar.navbar-inverse {
     </nav>
 <% end %>
 
-  <script type="text/javascript">
-      $(document).ready(function() {
-          $(".disableEvent").on("contextmenu",function(){
-               alert('right click disabled');
-             return false;
-          }); 
-      });
-  </script>
-  <script type="text/javascript">
-      $(document).ready(function() {
-         $('.disableEvent').bind('cut copy paste', function (e) {
-          e.preventDefault();
-               alert('Copying and pasting disabled');
-      });
-      });
-  </script> 
+ <!-- Anti theft measure -->
 
-
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".disableEvent").on("contextmenu",function(){
+             alert('right click disabled');
+           return false;
+        }); 
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+       $('.disableEvent').bind('cut copy paste', function (e) {
+        e.preventDefault();
+             alert('Copying and pasting disabled');
+    });
+    });
+</script> 
 
 

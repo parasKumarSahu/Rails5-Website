@@ -8,9 +8,10 @@
 require 'csv'
 
 if AdminUser.find_by(email: 'admin@example.com').nil?
-	AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+	AdminUser.create!(email: 'admin@example.com', password: 'suraj123', password_confirmation: 'suraj123')
+	puts "Created Admin User"
 else
-	puts "User already exists"
+	puts "Admin User already exists"
 end
 
 puts "Do you want to import users data data? Enter yes to continue."
