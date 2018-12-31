@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_12_27_223710) do
 
-  create_table "References", force: :cascade do |t|
+  create_table "references", force: :cascade do |t|
     t.string "image"
     t.string "customer"
     t.string "project_type"
