@@ -9,18 +9,12 @@
 	padding: 50px;
 	margin-top: -50px;
 }	
-h1{
-	font-size: 60px;
-	color: purple;
-}	
 </style>
 <%= render 'layouts/navbar2' %>    
 
 <header>
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
         <div class="header-content-inner">
-	      <h1>Overview</h1><hr>
-          <h2>Product name : <%= params[:product] %></h2><br><br><br>
           <%= Product.find_by(name: params[:product]).overview.body.html_safe%>
         </div>
     </div>

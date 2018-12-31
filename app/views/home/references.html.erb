@@ -7,25 +7,31 @@
    border-radius: 15px 50px;
    border-left: solid;   
 }
-h1{
-	font-size: 60px;
+#filter{
+	font-size: 30px;
 	color: purple;
 }	
 .round-box{
 	border-radius: 50px;
 }
+#banner{
+	width: 100%;
+	margin-top: 50px;
+}	
 </style>
 <header>
+	<img id="banner" src="/reference/banner.png">
+
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
-    	<h1><strong>Our Projects (<%= params[:par] %>)</strong></h1><hr>
 
 		<div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
 			<%= link_to "All", "/home/references?par=all", class: "btn btn-secondary" %>	
 			<%= link_to "Residential", "/home/references?par=residential", class: "btn btn-secondary" %>	
-			<%= link_to "Commercial", "/home/references?par=commercial", class: "btn btn-secondary" %>	
+			<%= link_to "Commercial", "/home/references?par=commercial", class: "btn btn-secondary" %>		
 		</div>
-		<br><br><br>
-
+		<hr>
+    	<p id="filter">(<%= params[:par] %>)</strong></p>
+    	<br><br>
 		<% if params[:par] == 'all'
 		 	r_obj = @references
 		 end %>
@@ -62,3 +68,38 @@ h1{
     </div>
 </header>
 
+<script type="text/javascript">
+;(function($){
+  
+    /**
+     * Store scroll position for and set it after reload
+     *
+     * @return {boolean} [loacalStorage is available]
+     */
+    $.fn.scrollPosReaload = function(){
+        if (localStorage) {
+            var posReader = localStorage["posStorage"];
+            if (posReader) {
+                $(window).scrollTop(posReader);
+                localStorage.removeItem("posStorage");
+            }
+            $(this).click(function(e) {
+                localStorage["posStorage"] = $(window).scrollTop();
+            });
+
+            return true;
+        }
+
+        return false;
+    }
+    
+    /* ================================================== */
+
+    $(document).ready(function() {
+        // Feel free to set it for any element who trigger the reload
+        $('.btn').scrollPosReaload();
+    });
+  
+}(jQuery));  
+	
+</script>

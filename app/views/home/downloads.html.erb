@@ -14,9 +14,13 @@
 	font-size: 20px;
 	text-align: left;
 }
+#banner{
+	width: 100%;
+	margin-top: 50px;
+}	
 </style>
 <header>
-    	<img src="http://sites.cardiff.ac.uk/cshub/files/2017/12/Downloads.jpg" style="width: 100%;">
+    	<img id="banner" src="http://sites.cardiff.ac.uk/cshub/files/2017/12/Downloads.jpg" style="width: 100%;">
 
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
     	<div class="container">
@@ -84,5 +88,41 @@
 	$("button").click(function() {
 		location = "/home/downloads?product="+product+"&category="+category;
 	});
+</script>
+
+<script type="text/javascript">
+;(function($){
+  
+    /**
+     * Store scroll position for and set it after reload
+     *
+     * @return {boolean} [loacalStorage is available]
+     */
+    $.fn.scrollPosReaload = function(){
+        if (localStorage) {
+            var posReader = localStorage["posStorage"];
+            if (posReader) {
+                $(window).scrollTop(posReader);
+                localStorage.removeItem("posStorage");
+            }
+            $(this).click(function(e) {
+                localStorage["posStorage"] = $(window).scrollTop();
+            });
+
+            return true;
+        }
+
+        return false;
+    }
+    
+    /* ================================================== */
+
+    $(document).ready(function() {
+        // Feel free to set it for any element who trigger the reload
+        $('.btn').scrollPosReaload();
+    });
+  
+}(jQuery));  
+	
 </script>
 

@@ -22,6 +22,13 @@
 }
 
 
+
+
+
+
+
+
+
 </style>
 <nav class="nav-cus" id="nav2" style="font-family: comic sans;margin-top: 100px">
   <div class="container-fluid">
@@ -41,9 +48,9 @@
           <%= link_to "Overview", "/home/overview?product=" + params[:product]%>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Design <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+        <li class="nav-item dropdown hoverli2">
+          <a href="#">Design <span class="caret"></span></a>
+          <ul class="dropdown-menu file_menu2">
             <li><%= link_to("Decor Selector", "/home/design?product="+params[:product]+"&col=selector",
              class: 'dropdown-item')%></li>
             <li><%= link_to("Decor Guide", "/home/design?product="+params[:product]+"&col=guide",
@@ -59,9 +66,9 @@
           </ul>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Technical<span class="caret"></span></a>
-          <ul class="dropdown-menu">
+        <li class="nav-item dropdown hoverli">
+          <a href="#">Technical<span class="caret"></span></a>
+          <ul class="dropdown-menu file_menu">
             <li class="dropdown-submenu">
               <a class="test" href="#">Manufacturing<span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -77,7 +84,7 @@
               </ul>
             </li>
             <li class="dropdown-submenu">
-              <a class="test" href="#">Performence<span class="caret"></span></a>
+              <a class="test" href="#">Performance<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li class="inn"><%= link_to("Features", "/home/technical?product="+params[:product]+"&col=features&table=performence", class: 'dropdown-item')%></li>
                 <li class="inn"><%= link_to("Maintenance", "/home/technical?product="+params[:product]+"&col=maintenance&table=performence", class: 'dropdown-item')%></li>
@@ -96,16 +103,40 @@
   </div>
 </nav>
 
+
+
+
 <script>
 $(document).ready(function(){
-    $('.dropdown-submenu a.test').hover(
-      function () {
-        $(this).next('ul').show();
-      }, 
-      function () {
-        $(this).next('ul').delay(1000).fadeOut('slow');
-      }
-    );
+
+    $(".hoverli").hover(
+  function () {
+     $('ul.file_menu').slideDown('medium');
+  }, 
+  function () {
+     $('ul.file_menu').slideUp('medium');
+  }
+);
+
+    $(".hoverli2").hover(
+  function () {
+     $('ul.file_menu2').slideDown('medium');
+  }, 
+  function () {
+     $('ul.file_menu2').slideUp('medium');
+  }
+);
+
+     $(".file_menu li").hover(
+  function () {
+     $(this).children("ul").slideDown();
+  },
+  function () {
+    $(this).children("ul").slideUp();
+  }
+);
+
+
 });
 </script>
 

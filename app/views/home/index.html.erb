@@ -37,7 +37,8 @@ img{
     <div class="header-content page-wrap"  style="background-color: white;">
         <div class="header-content-inner">
 			<div style="padding-left: 30px;padding-bottom: 50px;background-color: rgba(192,192,192,0.5);">
-			   <p style="padding: 40px 0px 0px 0px; font-size: 30px;font-weight:lighter;">Hello, Dear Merino Family Member!</p><br>
+	        	<% u = current_user.user_info %>	
+			   <p style="padding: 40px 0px 0px 0px; font-size: 30px;font-weight:lighter;">Hello<%= " "+u.name if u != nil %>, Dear Merino Family Member!</p><br>
 			   <p style="font-size: 20px;font-weight:lighter;">Welcome to MyMerino Portal.</p><br>
 			   <p style="font-size: 15px;">Your new home for-Product related information, Training, Certifications, Company, Events and so much more! click below to learn more about MyMerino</h6><hr>
 			   <a href="https://s3.ap-south-1.amazonaws.com/ppts-merino/Merino-Corp-Profile.pdf" target="_blank" class="btn btn-primary">Learn more</a>
