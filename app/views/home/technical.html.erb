@@ -15,7 +15,7 @@
 <header>
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
         <div class="header-content-inner">
-         <%= Product.find_by(name: params[:product]).send(params[:table]).send(params[:col].to_sym).html_safe%>
+         <%= Product.find_by(name: params[:product].gsub("plus", "+")).send(params[:table]).send(params[:col].to_sym).html_safe%>
         </div>
     </div>
 </header>

@@ -126,7 +126,9 @@ img{
 			        </div>
 			        <div class="row justify-content-center features">
 						<% f.products.each do |p|%>
-							<%= link_to "/home/overview?product="+p.name do%>
+                                                        <% s = p.name  %>
+                                                        <% modified = s.gsub("+", "plus")  %>
+							<%= link_to "/home/overview?product="+modified  do%>
 				            <div class="col-sm-5 col-md-5 col-lg-4 item">
 				                <div class="box"  style="background-color: rgba(192,192,192,0.5)">
 				                    <h3 class="name"><%= p.name %></h3>
