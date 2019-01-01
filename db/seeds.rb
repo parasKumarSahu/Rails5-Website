@@ -78,7 +78,7 @@ if Family.count == 0
 				t.save
 			end
 			product_name = row["product"]
-			product_name = product_name.gsub("+", "plus")
+			product_name = product_name
 			t.products.create! name: product_name
 			pro = Product.find_by name: product_name
 			pro.create_design(selector: html_str+"selector"+html_str2,
