@@ -15,7 +15,7 @@ class HomeController < ApplicationController
   def business
   end	
   def downloads    
-    @resources = Resource.paginate(:page => params[:page], :per_page => 5)   
+    @resources = Resource.paginate(:page => params[:page], :per_page => 10)   
   end
   def references
     @references = Reference.paginate(:page => params[:page], :per_page => 5)  
