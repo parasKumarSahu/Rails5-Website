@@ -1,18 +1,19 @@
 <style>
 .header-content-inner{
-	border-left: solid;
-	border-right: solid;
-	margin-left: 10%;
-	margin-right: 10%;
-	border-radius: 0 50px 0 50px;
-	background-color: silver;
+	margin-left: 5%;
+	margin-right: 5%;
+	border-radius: 30px;
+	background-color: rgba(192,192,192,0.1);
 	padding: 50px;
 	margin-top: -50px;
+	border: 15px solid silver;
+	box-shadow: 5px 10px #888888;
+	background-image: radial-gradient(white, silver);
 }	
 </style>
 
-<%= render 'layouts/navbar2' %>    
 <header>
+<%= render 'layouts/navbar2' %>    
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
         <div class="header-content-inner">
          <%= Product.find_by(name: params[:product].gsub("plus", "+")).send(params[:table]).send(params[:col].to_sym).html_safe%>
