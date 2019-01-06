@@ -8,4 +8,8 @@
   // Tell Passenger to run the app as the given user. Only has effect
   // if Passenger was started with root privileges.
   "user": "ec2-user"
+  ,"ssl": true,
+  "ssl_certificate": "/home/ec2-user/genesis-macklemore/ssl/server.crt",
+  "ssl_certificate_key": "/home/ec2-user/genesis-macklemore/ssl/server.key",
+  "nginx_config_template": "/home/ec2-user/genesis-macklemore/ssl/nginx.conf.erb"
 }
