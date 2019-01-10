@@ -35,7 +35,7 @@
 		    	end %>    			
     			<% p_obj.each do |r| %>
     			<% if params[:category] == "all" || params[:category] == r.category %>
-    			<% if params[:product] == "all" || params[:product] == r.product.name %>
+    			<% if params[:product] == "all" || params[:product] == r.product.name.gsub("+", "plus") %>
 			    	<div class="list_item">
 			    		<%= link_to r.name, r.link, class: "btn btn-info btn-block my_btn", target: "_blank" %>		    		
 			    	</div><hr>
@@ -52,7 +52,7 @@
 					<option selected="selected">Select product filter</option>
 					<option value="all">All</option>
 				<% Product.all.each do |p| %>	
-					<option value="<%== p.name %>"><%= p.name %></option>
+					<option value="<%== p.name.gsub("+", "plus") %>"><%= p.name %></option>
 				<% end %>  
 				</select>
 				<h3>Document Type</h3>
