@@ -13,7 +13,6 @@ h1{
 }
 #banner{
 	width: 100%;
-	border-radius: 0 0 70px 70px;
 }	
 .event-content{
 	font-size: 30px;
@@ -26,8 +25,8 @@ h1{
 }
 </style>
 <header class="event-header">
+    <img id="banner" src="/events/banner.jpg">
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;">
-    	<img id="banner" src="/events/banner.jpg">
     	<br><br><br><br>
 		<% @events.each do |e|%>
 		<div class="container round-box" style="padding:20px;background-color: rgba(192,192,192,0.4);">

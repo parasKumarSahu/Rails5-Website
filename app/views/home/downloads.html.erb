@@ -13,6 +13,8 @@
 .my_btn{
 	font-size: 20px;
 	text-align: left;
+	white-space: normal;
+	text-transform: none;
 }
 #banner{
 	width: 100%;
@@ -35,7 +37,7 @@
     			<% if params[:category] == "all" || params[:category] == r.category %>
     			<% if params[:product] == "all" || params[:product] == r.product.name %>
 			    	<div class="list_item">
-			    		<%= link_to r.name, download_file_path+"?file=" + r.link, class: "btn btn-info btn-block my_btn" %>		    		
+			    		<%= link_to r.name, r.link, class: "btn btn-info btn-block my_btn", target: "_blank" %>		    		
 			    	</div><hr>
 			    <% end %>	
 			    <% end %>	
@@ -57,7 +59,7 @@
 				<select id="select-2" class="form-control form-control-lg" onchange="change_category2()">
 					<option selected="selected">Select category filter</option>
 					<option value="all">All</option>
-					<option value="Brochure">Brochure</option>
+					<option value="Catalogue">Catalogue and Brochure</option>
 					<option value="Certificate">Certificate</option>
 					<option value="Technical">Technical data sheet</option>
 					<option value="Decor">Decor Swatch</option>

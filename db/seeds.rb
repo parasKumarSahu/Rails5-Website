@@ -163,33 +163,22 @@ if user_string == "yes"
 end
 
 if Resource.count == 0
-	Product.all.each do |p|
-		p.resources.create!(
-			name: "brochure_" + p.name,
-			link: "brochure.pdf",
-			category: "Brochure",
-			)
-		p.resources.create!(
-			name: "certificate_" + p.name,
-			link: "certificate.pdf",
-			category: "Certificate",
-			)
-		p.resources.create!(
-			name: "data_sheet_" + p.name,
-			link: "data_sheet.xls",
-			category: "Technical",
-			)
-		p.resources.create!(
-			name: "decor_" + p.name,
-			link: "decor.png",
-			category: "Decor",
-			)
-		p.resources.create!(
-			name: "environment_" + p.name,
-			link: "environment.txt",
-			category: "Environment",
-			)
-	end	
+	csv_text = File.read(Rails.root.join('db', 'data', 'downloads.csv'))
+	csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
+	csv.each do |row|
+		resource_arr = row["FILE"].split("_")
+		p = Product.find_by(name: resource_arr[0].gsub("-", " "))
+		if p != nil
+			t = Resource.new
+			t.name = resource_arr[2]
+			t.link = "https://s3.ap-south-1.amazonaws.com/mymerino-assets/downloads/" + row["FILE"].gsub("+", "%2B")
+			t.category = resource_arr[1]
+			t.product = p
+			t.save           
+		else
+			puts resource_arr[0] + " was not found"	
+		end	
+	end
 else
 	puts "Resource already exists"	
 end
