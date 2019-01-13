@@ -2,14 +2,13 @@
 .container img {
    width: 100%;
    padding: 20px;
+   border-left: solid;
    border-right: solid;
-   border-right: solid;
-   border-radius: 15px 50px;
-   border-left: solid;   
+   border-radius: 30px;
 }
 #filter{
 	font-size: 30px;
-	color: purple;
+	color: black;
 }	
 .round-box{
 	border-radius: 50px;
@@ -25,12 +24,12 @@
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
 
 		<div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-			<%= link_to "All", "/home/references?par=all", class: "btn btn-secondary" %>	
-			<%= link_to "Residential", "/home/references?par=residential", class: "btn btn-secondary" %>	
-			<%= link_to "Commercial", "/home/references?par=commercial", class: "btn btn-secondary" %>		
+			<%= link_to "All", "/home/references?par=all", class: "btn btn-primary" %>	
+			<%= link_to "Residential", "/home/references?par=residential", class: "btn btn-primary" %>	
+			<%= link_to "Commercial", "/home/references?par=commercial", class: "btn btn-primary" %>		
 		</div>
 		<hr>
-    	<p id="filter">(<%= params[:par] %>)</strong></p>
+    	<p id="filter">(Showing <%= params[:par] %> projects)</strong></p>
     	<br><br>
 		<% if params[:par] == 'all'
 		 	r_obj = @references
@@ -51,13 +50,10 @@
 				<div class="col-md-7" style="text-align: left">
 					<h3><strong>Project :</strong> <%= r.project%></h3>
 					<h3><strong>Project Type :</strong> <%= r.project_type%></h3>
-					<h3><strong>Product :</strong> <%= r.product%></h3>
-					<h3><strong>Location :</strong> <%= r.location%></h3>
-					<h3><strong>Quantity :</strong> <%= r.quantity%></h3>
-					<h3><strong>Project Codes :</strong> <%= r.code%></h3>
 					<h3><strong>Customer :</strong> <%= r.customer%></h3>
-					<h3><strong>Year :</strong> <%= r.year%></h3>
-
+					<% if r.location != nil %>
+						<h3><strong>Location :</strong> <%= r.location%></h3>
+					<% end %>
 				</div>
 			</div>			
 		</div>
