@@ -215,7 +215,10 @@ if Learn.count == 0 && Course.count == 0
 			t.name = row["course"]
 			t.save
 		end	
-		t.learns.create(video_link: row["video"], thumbnail: row["thumbnail"])
+		t.learns.create(video_link: row["video"],
+		 thumbnail: row["thumbnail"],
+		 title: "video title",
+		 description: "This text brefly describes the video and it should be replaced.")
 		puts row["course"] + row["video"]
 	end
 

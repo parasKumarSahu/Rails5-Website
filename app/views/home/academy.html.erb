@@ -7,11 +7,33 @@
 	border-radius: 50px;
 }
 .academy-video{
-	padding: 20px;
+	padding: 4%;
 	background-color: grey;
 	border-radius: 20px;
 }
 </style>
+
+
+<style type="text/css">
+.learning-section { 	height: calc(100% - 20px); 	width: calc(100% - 20px); 	margin: 0; 	padding: 10px; 	display: flex; 	color: black; 	font-family: 'Roboto', sans-serif; } 
+.accordion { 	margin: auto; 	width: 90%; } 
+.accordion input { 	display: none; } 
+.box { 	position: relative; background: lightgrey; height: 64px; transition: all .15s ease-in-out; } 
+.box::before { content: ''; position: absolute; display: block; top: 0; bottom: 0; left: 0; right: 0; pointer-events: none; box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24); } 
+header.box { 	z-index: 100; 	cursor: initial; 	box-shadow: 0 -1px 0 #e5e5e5,0 0 2px -2px rgba(0,0,0,.12),0 2px 4px -4px rgba(0,0,0,.24); } 
+header .box-title { 	margin: 0; 	font-weight: normal; 	font-size: 25pt; 	cursor: initial; } 
+.box-title { 	width: calc(100% - 40px); 	height: 64px; 	line-height: 64px; 	padding: 0 20px; 	display: inline-block; 	cursor: pointer; 	-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none; } 
+.box-content { 	width: calc(100% - 40px); 	display: none; } 
+.box-close { 	position: absolute; 	height: 64px; 	width: 100%; 	top: 0; 	left: 0; 	cursor: pointer; 	display: none; } 
+input:checked + .box { 	height: auto; 	margin: 16px 0; box-shadow: 0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32); } 
+input:checked + .box .box-title { 	border-bottom: 1px solid rgba(0,0,0,.18); } 
+input:checked + .box .box-content, input:checked + .box .box-close { 	display: inline-block; } 
+.arrows section .box-title { 	padding-left: 44px; 	width: calc(100% - 64px); } 
+.arrows section .box-title:before { 	position: absolute; 	display: block; 	content: '\203a'; 	font-size: 18pt; 	left: 20px; 	top: -2px; 	transition: transform .15s ease-in-out; 	color: rgba(0,0,0,.54); } 
+input:checked + section.box .box-title:before { 	transform: rotate(90deg); }
+</style>
+
+
 <header>
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
         <div class="header-content-inner">
@@ -59,34 +81,44 @@
 				</div>
 			</div>		
 			<hr><hr>
-			<h1 style="font-size: 40px">Learning Section</h1>
-			<hr>
 
+			<div class="learning-section">
+				<nav class="accordion arrows">
+				<header class="box btn-default"><label class="box-title" for="acc-close">Learning Section</label></header>
+				<% count = 1 %>
+				<% Course.all.each do |c| %>
+				<br>
+					<input id="cb<%= count %>" name="accordion" type="radio" />
+					<section class="box"><label class="box-title" for="cb<%= count %>"><%= c.name %></label>
+					<div class="box-content">
 
-		  	<% Course.all.each do |c| %>
-		  	<hr>
-		  	<a href="/home/academy?course=<%= c.name %>" class="btn btn-default" style="font-size: 30px;width: 90%"><%= c.name %></a>
-		  	<a id="<%= c.name.gsub(/\s+/, "") %>"></a>
-		  	<% if params[:course] == c.name %>
-			<div style="display: grid;
-			  grid-template-columns: 1fr 1fr;
-			  grid-column-gap: 3%;
-			  align-content: center;
-			  justify-content: center;
-			  grid-gap: 3%;
-			  padding: 3%;
-			  margin-top: 2em;">
+						<div style="display: grid;
+						  grid-template-columns: 1fr 1fr;
+						  grid-column-gap: 3%;
+						  align-content: center;
+						  justify-content: center;
+						  grid-gap: 5%;
+						  padding: 5%;
+						  margin-top: 2em;">
 
-				<!-- when you click on one of the videos, video should play -->
-				<% c.learns.each do |l|%>
-				<div class="academy-video">
-					<video src="<%= l.video_link %>" controls="" preload="none" poster="<%= l.thumbnail %>" width="100%" height="100%">	
-					</video>
-				</div>
+						<% c.learns.each do |l|%>
+						<div>
+							<div class="academy-video">
+								<video src="<%= l.video_link %>" controls="" preload="none" poster="<%= l.thumbnail %>" width="100%" height="100%">	
+								</video>								
+							</div>
+							<h3><%= l.title %></h3>
+							<p><%= l.description %></p>
+						</div>
+						<% end %>
+					
+					</div>
+					</section>
+					<% count += 1 %>
 				<% end %>
-			</div>	
-			<% end %>	
-			<% end %>
+
+				<input id="acc-close" name="accordion" type="radio" /></nav>
+			</div>
 
         </div>
     </div>
@@ -102,38 +134,6 @@ $('.carousel').carousel({
     interval: 6000
 });   
 
-;(function($){
-  
-    /**
-     * Store scroll position for and set it after reload
-     *
-     * @return {boolean} [loacalStorage is available]
-     */
-    $.fn.scrollPosReaload = function(){
-        if (localStorage) {
-            var posReader = localStorage["posStorage"];
-            if (posReader) {
-                $(window).scrollTop(posReader);
-                localStorage.removeItem("posStorage");
-            }
-            $(this).click(function(e) {
-                localStorage["posStorage"] = $(window).scrollTop();
-            });
-
-            return true;
-        }
-
-        return false;
-    }
-    
-    /* ================================================== */
-
-    $(document).ready(function() {
-        // Feel free to set it for any element who trigger the reload
-        $('.btn').scrollPosReaload();
-    });
-  
-}(jQuery));  
 
 </script>
 
