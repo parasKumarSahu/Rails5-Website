@@ -1,0 +1,2 @@
+class ProductUpdate < ApplicationRecord
+end
