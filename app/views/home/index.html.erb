@@ -197,11 +197,13 @@ img{
 				<br>
 				<h1>Press Release</h1>
 				<hr>
-				<% press = Press.last %>
-				<a href="<%= press.link %>" target="_blank">
+                                <% if Press.last != nil  %>
+				  <% press = Press.last %>
+				  <a href="<%= press.link %>" target="_blank">
 					<img src="<%= press.image %>" width="50%">				
-				</a>
-				<h3 style="color: white">Click on the image to see all press releases</h3>
+				  </a>
+				  <h3 style="color: white">Click on the image to see all press releases</h3>
+                                <% end %>
 				<br><br><br>
 			</div>
 		</div>	
