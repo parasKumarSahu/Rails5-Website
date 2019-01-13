@@ -1,0 +1,2 @@
+class OrganizationUpdate < ApplicationRecord
+end

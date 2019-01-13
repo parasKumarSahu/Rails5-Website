@@ -54,14 +54,12 @@ img{
 				<h1>Product Updates</h1>
 				<br>
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
 					<ol class="carousel-indicators">
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 					<li data-target="#myCarousel" data-slide-to="1"></li>
 					<li data-target="#myCarousel" data-slide-to="2"></li>
 					</ol>
 
-					<!-- Wrapper for slides -->
 					<div class="carousel-inner">
 						<% p_active = "active" %>
 						<% ProductUpdate.all.each do |p| %>
@@ -72,7 +70,6 @@ img{
 						<% end %>
 					</div>
 
-					<!-- Left and right controls -->
 					<a class="left carousel-control" href="#myCarousel" data-slide="prev">
 					<span class="glyphicon glyphicon-chevron-left"></span>
 					<span class="sr-only">Previous</span>
@@ -90,20 +87,17 @@ img{
 				<br>
 				<h1>Marketing Events</h1>
 				<hr>
-				<!-- Link to Events -->
 				<a name="Events">&nbsp;</a>
 
 				<div class="row">
 
 					<div id="myCarousel2" class="carousel slide col-md-8 col-md-offset-2" data-ride="carousel">
-						<!-- Indicators -->
 						<ol class="carousel-indicators">
 						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 						<li data-target="#myCarousel" data-slide-to="1"></li>
 						<li data-target="#myCarousel" data-slide-to="2"></li>
 						</ol>
 
-						  <!-- Wrapper for slides -->
 						<div class="carousel-inner">
 							<% state = "active" %>
 							<% Event.all.each do |e| %>
@@ -132,9 +126,6 @@ img{
 				<br><br>
         	</div>
 
-
-
-
 			<br>
 
 			<div class="container bg-dark" style="border-radius: 10px;width:100%;height:130vh;padding-left: 10%;padding-right: 10%">
@@ -142,80 +133,77 @@ img{
 				<h1>Organization Updates</h1>
 				<hr>
 
-				<!-- Link to Events -->
 				<a name="Gallery">&nbsp;</a>
 
 				<div class="row">
 
 					<div id="myCarousel3" class="carousel slide" data-ride="carousel">
-						<!-- Indicators -->
 						<ol class="carousel-indicators">
 						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 						<li data-target="#myCarousel" data-slide-to="1"></li>
 						<li data-target="#myCarousel" data-slide-to="2"></li>
 						</ol>
 
-						<!-- Wrapper for slides -->
 						<div class="carousel-inner">
-						<div class="item active">
-							<img src="/events/3.jpg" style="height: 100vh">
-							<div class="carousel-caption2 d-none d-md-block" style="background-color: silver; color: black;">
-							<h2>Meeting</h2>
-							<p>Meeting at MyMerino</p>
-							</div>
+						<% o_active = "active" %>
+						<% OrganizationUpdate.all.each do |o| %>
+							<% if o.video.length < 5 %>
+								<div class="item <%= o_active %>" style="height: 100vh">
+									<img src="<%= o.image %>" style="width: 100%">
+									<div class="carousel-caption2 d-none d-md-block" style="background-color: silver; color: black;">
+									<%= o.description.html_safe %>
+									</div>
+								</div>
+							<% else %>
+								<div class="item <%= o_active %>" style="height: 100vh">
+									<video class="video-1" target="_blank" src="<%= o.video %>" controls="" preload="none" poster="<%= o.image %>" width="100%">	
+									</video>
+									<div class="carousel-caption2 d-none d-md-block" style="background-color: silver; color: black;">
+										<%= o.description.html_safe %>
+									</div>
+								</div>
+							<% end %>
+							<% o_active = "" %>
+						<% end %>	
 						</div>
+						<br><br>
+	        		</div>
+   			 	</div> 
+	   		</div>	 
 
-						<div class="item" style="height: 100vh">
-							<video class="video-1" target="_blank" src="https://s3.ap-south-1.amazonaws.com/training-videos-merino/HPL101-Part2.mp4" controls="" preload="none" poster="//s3-ap-south-1.amazonaws.com/mymerinoproduction1/academy/videos/thumbnails/2HPL_101_2-2.jpg?1533277411" width="100%">	
-							</video>
-									  <div class="carousel-caption2 d-none d-md-block" style="background-color: silver; color: black;">
-									    <h2>Course Videos</h2>
-									    <p>Most popular course video</p>
-									  </div>
-						</div>
+			<div id="carouselButtons">
+				<a class="left btn btn-default btn-xs" href="#myCarousel3" data-slide="prev">
+				<span class="glyphicon glyphicon-backward"></span>
+				<span class="sr-only">Previous</span>
+				</a>
 
+			    <button id="playButton" type="button" class="btn btn-default btn-xs">
+			        <span class="glyphicon glyphicon-play"></span>
+			     </button>
 
+			    <button id="pauseButton" type="button" class="btn btn-default btn-xs">
+			        <span class="glyphicon glyphicon-pause"></span>
+			    </button>
 
-					</div><br><br>
-	        	</div>
-   			 </div> 
-   		</div>	 
+				<a class="right btn btn-default btn-xs" href="#myCarousel3" data-slide="next">
+				<span class="glyphicon glyphicon-forward"></span>
+				<span class="sr-only">Previous</span>
+				</a>
+			</div>
 
-		<div id="carouselButtons">
-
-			<a class="left btn btn-default btn-xs" href="#myCarousel3" data-slide="prev">
-			<span class="glyphicon glyphicon-backward"></span>
-			<span class="sr-only">Previous</span>
-			</a>
-
-		    <button id="playButton" type="button" class="btn btn-default btn-xs">
-		        <span class="glyphicon glyphicon-play"></span>
-		     </button>
-
-		    <button id="pauseButton" type="button" class="btn btn-default btn-xs">
-		        <span class="glyphicon glyphicon-pause"></span>
-		    </button>
-
-			<a class="right btn btn-default btn-xs" href="#myCarousel3" data-slide="next">
-			<span class="glyphicon glyphicon-forward"></span>
-			<span class="sr-only">Previous</span>
-			</a>
-
-		</div>
-
-		<br>
-
-		<div class="bg-dark" style="border-radius: 10px;width: 100%">
 			<br>
-			<h1>Press Release</h1>
-			<hr>
-			<a href="https://s3.ap-south-1.amazonaws.com/press-merino/PressCoverage-Merino.pdf" target="_blank">
-				<img src="https://s3.ap-south-1.amazonaws.com/press-merino/New+Doc+2018-05-26_15.jpg" width="50%">				
-			</a>
-			<h3 style="color: white">Click on the image to see all press releases</h3>
-			<br><br><br>
-		</div>
 
+			<div class="bg-dark" style="border-radius: 10px;width: 100%">
+				<br>
+				<h1>Press Release</h1>
+				<hr>
+				<a href="https://s3.ap-south-1.amazonaws.com/press-merino/PressCoverage-Merino.pdf" target="_blank">
+					<img src="https://s3.ap-south-1.amazonaws.com/press-merino/New+Doc+2018-05-26_15.jpg" width="50%">				
+				</a>
+				<h3 style="color: white">Click on the image to see all press releases</h3>
+				<br><br><br>
+			</div>
+		</div>	
     </div>
 </header>
 
