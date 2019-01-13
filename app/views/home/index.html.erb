@@ -197,8 +197,9 @@ img{
 				<br>
 				<h1>Press Release</h1>
 				<hr>
-				<a href="https://s3.ap-south-1.amazonaws.com/press-merino/PressCoverage-Merino.pdf" target="_blank">
-					<img src="https://s3.ap-south-1.amazonaws.com/press-merino/New+Doc+2018-05-26_15.jpg" width="50%">				
+				<% press = Press.last %>
+				<a href="<%= press.link %>" target="_blank">
+					<img src="<%= press.image %>" width="50%">				
 				</a>
 				<h3 style="color: white">Click on the image to see all press releases</h3>
 				<br><br><br>
