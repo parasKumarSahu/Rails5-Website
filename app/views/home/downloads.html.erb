@@ -51,9 +51,13 @@
 				<select id="select-1" class="form-control form-control-lg" onchange="change_category()">
 					<option selected="selected">Select product filter</option>
 					<option value="all">All</option>
-				<% Product.all.each do |p| %>	
-					<option value="<%== p.name.gsub("+", "plus") %>"><%= p.name+"  ("+p.family.name+" family)" %></option>
-				<% end %>  
+					<% Family.all.each do |f| %>
+					<optgroup label="<%= f.name %>">
+						<% f.products.each do |p| %>	
+							<option value="<%== p.name.gsub("+", "plus") %>"><%= p.name %></option>
+						<% end %>  						
+					</optgroup>
+					<% end %>
 				</select>
 				<h3>Document Type</h3>
 				<select id="select-2" class="form-control form-control-lg" onchange="change_category2()">
