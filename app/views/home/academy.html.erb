@@ -50,22 +50,13 @@ input:checked + section.box .box-title:before { 	transform: rotate(90deg); }
 
 					  <!-- Wrapper for slides -->
 					  <div class="carousel-inner">
-					    <div class="item active">
-					      <img src="/academy/logo.jpg">
-					    </div>
-
-					    <div class="item">
-					      <img src="/academy/1.jpg">
-					    </div>
-
-					    <div class="item">
-					      <img src="/academy/2.jpg">
-					    </div>
-
-					    <div class="item">
-					      <img src="/academy/3.jpg">
-					    </div>
-
+					  	<% a_active = "active" %>
+					  	<% Academy.all.each do |a| %>
+						    <div class="item <%= a_active %>">
+						      <img src="<%= a.link %>">
+						    </div>
+						    <% a_active = "" %>
+					    <% end %>
 					  </div>
 
 					  <!-- Left and right controls -->

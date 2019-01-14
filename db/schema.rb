@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_14_132530) do
+ActiveRecord::Schema.define(version: 2019_01_14_150724) do
 
   create_table "References", force: :cascade do |t|
     t.string "image"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 2019_01_14_132530) do
     t.string "location"
     t.string "quantity"
     t.integer "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "academies", force: :cascade do |t|
+    t.string "link"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
