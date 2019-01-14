@@ -40,7 +40,10 @@ img{
 	        	<% u = current_user.user_info %>	
 			   <p style="padding: 40px 0px 0px 0px; font-size: 30px;font-weight:lighter;">Hello<%= " "+u.name if u != nil %>, Dear Merino Family Member!</p><br>
 			   <p style="font-size: 20px;font-weight:lighter;">Welcome to MyMerino Portal.</p><br>
-			   <p style="font-size: 15px;">Your new home for-Product related information, Training, Certifications, Company, Events and so much more! click below to learn more about MyMerino</h6><hr>
+			   <% d = Description.last %>
+			   <% if d != nil %>
+				   <p style="font-size: 15px;"><%= d.home %></p><hr>
+			   <% end %>
 			   <a href="https://s3.ap-south-1.amazonaws.com/ppts-merino/Merino-Corp-Profile.pdf" target="_blank" class="btn btn-primary">Learn more</a>
 			</div>
 			<div class="blue-gradient" style="padding: 20px">

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  home: MyString
+  products: MyString
+  academy: MyString
+  downloads: MyString
+  projects: MyString
+  events: MyString
+
+two:
+  home: MyString
+  products: MyString
+  academy: MyString
+  downloads: MyString
+  projects: MyString
+  events: MyString
