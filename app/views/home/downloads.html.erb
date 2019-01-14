@@ -52,7 +52,7 @@
 					<option selected="selected">Select product filter</option>
 					<option value="all">All</option>
 				<% Product.all.each do |p| %>	
-					<option value="<%== p.name.gsub("+", "plus") %>"><%= p.name %></option>
+					<option value="<%== p.name.gsub("+", "plus") %>"><%= p.name+"  ("+p.family.name+" family)" %></option>
 				<% end %>  
 				</select>
 				<h3>Document Type</h3>
