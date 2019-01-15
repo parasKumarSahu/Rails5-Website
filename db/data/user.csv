@@ -1,4 +1,2 @@
 email,password,name,image,designation,permanent_office,current_office,extension,mob_number,alt_number,birthday
-"admin@example.com","password","Admin","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKr6YlGNsqgJzvgBBkq1648_HsuDizVn_ZXC6iQp9kjXFzLvs1BA","boss","Permanent local","Current Local","NA","89921882818","933910919092","1-1-1997"
-"suraj@example.com","password","User","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKr6YlGNsqgJzvgBBkq1648_HsuDizVn_ZXC6iQp9kjXFzLvs1BA","employee","Permanent local","Current Local","NA","89921882818","933910919092","1-1-1997"
-"dummy@example.com","password","User","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKr6YlGNsqgJzvgBBkq1648_HsuDizVn_ZXC6iQp9kjXFzLvs1BA","employee","Permanent local","Current Local","NA","89921882818","933910919092","1-1-1997"
+"admin@example.com","Suraj123","Admin","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKr6YlGNsqgJzvgBBkq1648_HsuDizVn_ZXC6iQp9kjXFzLvs1BA","boss","Permanent local","Current Local","NA","89921882818","933910919092","1-1-1997"

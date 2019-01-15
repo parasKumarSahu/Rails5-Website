@@ -51,18 +51,16 @@
         <li class="nav-item dropdown hoverli2">
           <a href="#">Design <span class="caret"></span></a>
           <ul class="dropdown-menu file_menu2">
-            <li><%= link_to("Decor Selector", "/home/design?product="+params[:product]+"&col=selector",
+            <li><%= link_to("Decor", "/home/design?product="+params[:product]+"&col=selector",
              class: 'dropdown-item')%></li>
-            <li><%= link_to("Decor Guide", "/home/design?product="+params[:product]+"&col=guide",
+            <li><%= link_to("Finish", "/home/design?product="+params[:product]+"&col=finishes",
+             class: 'dropdown-item')%></li>
+            <li><%= link_to("Availability", "/home/design?product="+params[:product]+
+            "&col=availability", class: 'dropdown-item')%></li>
+            <li><%= link_to("Sector", "/home/design?product="+params[:product]+"&col=sectors",
              class: 'dropdown-item')%></li>
             <li><%= link_to("Application Area", "/home/design?product="+params[:product]+"&col=area",
              class: 'dropdown-item')%></li>
-            <li><%= link_to("Sectors", "/home/design?product="+params[:product]+"&col=sectors",
-             class: 'dropdown-item')%></li>
-            <li><%= link_to("Finishes", "/home/design?product="+params[:product]+"&col=finishes",
-             class: 'dropdown-item')%></li>
-            <li><%= link_to("Availability Matrix", "/home/design?product="+params[:product]+
-            "&col=availability", class: 'dropdown-item')%></li>
           </ul>
         </li>
 

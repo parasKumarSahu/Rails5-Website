@@ -10,21 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_15_080521) do
-
-  create_table "References", force: :cascade do |t|
-    t.string "image"
-    t.string "customer"
-    t.string "project_type"
-    t.string "project"
-    t.string "product"
-    t.string "code"
-    t.string "location"
-    t.string "quantity"
-    t.integer "year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_01_15_125735) do
 
   create_table "academies", force: :cascade do |t|
     t.string "link"
@@ -96,13 +82,6 @@ ActiveRecord::Schema.define(version: 2019_01_15_080521) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "courses_learns", id: false, force: :cascade do |t|
-    t.integer "course_id", null: false
-    t.integer "learn_id", null: false
-    t.index ["course_id", "learn_id"], name: "index_courses_learns_on_course_id_and_learn_id"
-    t.index ["learn_id", "course_id"], name: "index_courses_learns_on_learn_id_and_course_id"
-  end
-
   create_table "decors", force: :cascade do |t|
     t.string "name"
     t.integer "number"
@@ -162,14 +141,14 @@ ActiveRecord::Schema.define(version: 2019_01_15_080521) do
   end
 
   create_table "learns", force: :cascade do |t|
-    t.string "video_link"
+    t.integer "course_id"
+    t.string "link"
     t.string "thumbnail"
-    t.string "thumbnail_type"
-    t.integer "thumbnail_size"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "title"
     t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_learns_on_course_id"
   end
 
   create_table "manufacturings", force: :cascade do |t|
@@ -256,6 +235,20 @@ ActiveRecord::Schema.define(version: 2019_01_15_080521) do
     t.integer "day_number"
     t.string "content"
     t.string "speaker"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "references", force: :cascade do |t|
+    t.string "image"
+    t.string "customer"
+    t.string "project_type"
+    t.string "project"
+    t.string "product"
+    t.string "code"
+    t.string "location"
+    t.string "quantity"
+    t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

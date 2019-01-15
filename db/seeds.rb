@@ -201,8 +201,8 @@ puts "Do you want to import Learning course videos data? Enter yes to continue."
 user_string = STDIN.gets.strip
 
 if user_string == "yes"
-	Course.delete_all
 	Learn.delete_all
+	Course.delete_all
 end
 
 if Learn.count == 0 && Course.count == 0
@@ -215,11 +215,10 @@ if Learn.count == 0 && Course.count == 0
 			t.name = row["course"]
 			t.save
 		end	
-		t.learns.create(video_link: row["video"],
-		 thumbnail: row["thumbnail"],
-		 title: "video title",
-		 description: "This text brefly describes the video and it should be replaced.")
-		puts row["course"] + row["video"]
+		t.learns.create(link: row["link"],
+		 title: row["title"],
+		 description: row["description"])
+		puts row["course"] + row["link"]
 	end
 
 else
