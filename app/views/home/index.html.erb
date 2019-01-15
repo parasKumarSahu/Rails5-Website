@@ -38,15 +38,15 @@ img{
         <div class="header-content-inner">
 			<div style="padding-left: 30px;padding-bottom: 50px;background-color: rgba(192,192,192,0.5);">
 	        	<% u = current_user.user_info %>	
-			   <p style="padding: 40px 0px 0px 0px; font-size: 30px;font-weight:lighter;">Hello<%= " "+u.name if u != nil %>, Dear Merino Family Member!</p><br>
-			   <p style="font-size: 20px;font-weight:lighter;">Welcome to MyMerino Portal.</p><br>
+			   <p style="padding: 40px 0px 0px 0px; font-size: 30px;font-weight:strong;">Hello<%= " "+u.name if u != nil %>!</p><br>
+			   <p style="font-size: 20px;font-weight:lighter;">Welcome to MyMerino Portal!</p><br>
 			   <% d = Description.last %>
 			   <% if d != nil %>
 				   <p style="font-size: 15px;"><%= d.home %></p><hr>
 			   <% end %>
 			   <a href="https://s3.ap-south-1.amazonaws.com/ppts-merino/Merino-Corp-Profile.pdf" target="_blank" class="btn btn-primary">Learn more</a>
 			</div>
-			<div class="blue-gradient" style="padding: 20px">
+			<div style="<%= Quote.last.background %>; padding: 20px;">
 				<p class="text-center" style="font-size: 25px;font-weight: 5;padding-top: 15px">Quote of the Day!</p>
 				<h3 class="text-center"><strong><%= Quote.last.content %></strong></h3>
 				<h4 class="text-center">-<%= Quote.last.speaker %></h4>

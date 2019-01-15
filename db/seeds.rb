@@ -148,6 +148,7 @@ if Quote.count == 0
 		t.day_number = row["day"]
 		t.content = row["content"]
 		t.speaker = row["speaker"]
+		t.background = "background-image: linear-gradient(-90deg, blue, skyblue);"
 		t.save
 		puts row["content"]
 	end

@@ -47,9 +47,9 @@
     		<div class="col-md-4 group-2">
     			<h1>Filter Downloads</h1>
     			<hr>
-    			<h3>Select Product</h3>
+    			<h3>Product</h3>
 				<select id="select-1" class="form-control form-control-lg" onchange="change_category()">
-					<option selected="selected">Select product filter</option>
+					<option selected="selected">Select product</option>
 					<option value="all">All</option>
 					<% Family.all.each do |f| %>
 					<optgroup label="<%= f.name %>">
@@ -59,9 +59,9 @@
 					</optgroup>
 					<% end %>
 				</select>
-				<h3>Select Document Type</h3>
+				<h3>Document Type</h3>
 				<select id="select-2" class="form-control form-control-lg" onchange="change_category2()">
-					<option selected="selected">Select category filter</option>
+					<option selected="selected">Select category</option>
 					<option value="all">All</option>
 					<option value="Catalogue">Catalogue and Brochure</option>
 					<option value="Certificate">Certificate</option>
