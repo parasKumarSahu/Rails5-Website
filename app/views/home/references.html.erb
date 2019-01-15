@@ -19,7 +19,7 @@
 }	
 </style>
 <header>
-	<img id="banner" src="/reference/banner.png">
+	<img id="banner" src="<%= Banner.last.projects if Banner.last != nil %>">
 
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
 

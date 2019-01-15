@@ -25,7 +25,7 @@ h1{
 }
 </style>
 <header class="event-header">
-    <img id="banner" src="/events/banner.jpg">
+    <img id="banner" src="<%= Banner.last.events if Banner.last != nil %>">
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;">
     	<br><br><br><br>
 		<% @events.each do |e|%>

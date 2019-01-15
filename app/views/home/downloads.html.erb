@@ -22,7 +22,7 @@
 }	
 </style>
 <header>
-    	<img id="banner" src="http://sites.cardiff.ac.uk/cshub/files/2017/12/Downloads.jpg" style="width: 100%;">
+    	<img id="banner" src="<%= Banner.last.downloads if Banner.last != nil %>" style="width: 100%;">
 
     <div class="header-content page-wrap" style="padding-left: 30px;padding-bottom: 50px;background-color: #eef4f7;">
     	<div class="container">
