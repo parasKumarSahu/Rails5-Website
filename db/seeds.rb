@@ -110,14 +110,15 @@ if user_string == "yes"
 	Reference.delete_all
 end
 
-ref_img_path = ["/reference/1.jpg", "/reference/2.jpg", "/reference/3.jpg", "/reference/4.jpg"]
-
 if Reference.count == 0
 	csv_text = File.read(Rails.root.join('db', 'data', 'references.csv'))
 	csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
-	csv.each do |row|
+	csv_text_img = File.read(Rails.root.join('db', 'data', 'references-images.csv'))
+	csv_img = CSV.parse(csv_text_img, :headers => true, :encoding => "ISO-8859-1")
+	ref_img_url = "https://s3.ap-south-1.amazonaws.com/mymerino-assets/projects/"
+	csv.zip(csv_img).each do |row, row_img|
 		t = Reference.new
-		t.image = ref_img_path.sample
+		t.image = ref_img_url+row_img["IMAGE"]
 		t.project_type = row["type"]
 		t.project = row["project"]
 		t.product = row["product"]
@@ -128,6 +129,7 @@ if Reference.count == 0
 		t.year = row["year"].to_i
 		t.save
 		puts row["customer"]
+		puts row_img["IMAGE"]
 	end
 else
 	puts "Refrences already exist"		
